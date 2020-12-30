@@ -32,4 +32,4 @@ const menuButtonOnclick = () => {
 }
 
 
-export default createMainMenuOptions;
+createMainMenuOptions();
