@@ -5,8 +5,8 @@ body {
 #menu-container{
     display: grid;
     grid-template:
-                "a b b" 200px
-                "c d d" 200px
-                "c e e" 200px
-                "f f f" 200px
+                "a b b" auto
+                "c d d" auto
+                "c e e" auto
+                "f f f" auto
 }
