@@ -23,10 +23,10 @@ describe('Menu Options Selector test', () => {
         button.click();
         button2.click();
         expect(button.classList.contains("active")).toBeFalsy;
+        expect(button2.classList.contains("active")).toBeFalsy;
     })
-    it('check if callback function is called', () => {
+    it('check if callback function is called when button clicked', () => {
         button.click();
         expect(callbackFunction).toBeCalled();
     })
 })
-
