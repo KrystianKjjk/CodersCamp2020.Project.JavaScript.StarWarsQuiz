@@ -32,4 +32,4 @@ const createMainMenuOptions = (optionFunction) => {
     document.body.appendChild(mainMenuDiv);
 }
 
-export default createMainMenuOptions
+export default createMainMenuOptions;
