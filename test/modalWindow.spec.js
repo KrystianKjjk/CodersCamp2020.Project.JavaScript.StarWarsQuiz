@@ -13,20 +13,18 @@ describe('Modal Window test', () => {
     it('when correct arguments, return HTMLElement', () => {
         const component = document.createElement('p');
         const closeWin = () => console.log('closeWindow');
-        expect(modalWindow(component, closeWin) instanceof HTMLElement).toBe(true);
+        expect(modalWindow(component, closeWin)).toBeInstanceOf(HTMLElement);
     })
     it('when background clicked, run function closeWindow()', () => {
         const component = document.createElement('p');
-        let msg = 'window';
-        const closeWin = () => {msg = 'Window closed'};
+        const closeWin = jest.fn();
         modalWindow(component, closeWin).click();
-        expect(msg).toBe('Window closed');
+        expect(closeWin).toHaveBeenCalled();
     })
     it('when window clicked, dont run function closeWindow()', () => {
         const component = document.createElement('p');
-        let msg = 'window';
-        const closeWin = () => {msg = 'Window closed'};
+        const closeWin = jest.fn();
         modalWindow(component, closeWin).children[0].click();
-        expect(msg).toBe('window');
+        expect(closeWin).not.toHaveBeenCalled();
     })
 })

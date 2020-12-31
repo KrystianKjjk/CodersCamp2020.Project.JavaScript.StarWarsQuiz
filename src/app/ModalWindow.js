@@ -2,7 +2,7 @@ function modalWindow(component, closeWindow) {
     if ( !(component instanceof HTMLElement) ){
         throw Error('First argument should be HTMLElement.');
     }
-    if ( !(closeWindow instanceof Function) ){
+    if ( !(typeof closeWindow === 'function') ){
         throw Error('Second argument should be Function.');
     }
     const modalWindowDiv = document.createElement('div');
