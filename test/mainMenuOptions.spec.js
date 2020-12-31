@@ -1,4 +1,4 @@
-import createMainMenuOptions from "../src/app/mainMenuOptions";
+import createMainMenuOptions from "../src/app/MainMenuOptions.js";
 
 //define sample callback function
 const callbackFunction = jest.fn();
