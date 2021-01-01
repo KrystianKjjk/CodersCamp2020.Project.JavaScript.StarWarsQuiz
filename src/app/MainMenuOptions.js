@@ -29,7 +29,7 @@ const createMainMenuOptions = (optionFunction) => {
     }
 
     //append menu to body, to be changed once there will be a place to append
-    document.body.appendChild(mainMenuDiv);
+    return mainMenuDiv;
 }
 
 export default createMainMenuOptions;

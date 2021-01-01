@@ -4,7 +4,7 @@ import createMainMenuOptions from "../src/app/MainMenuOptions.js";
 const callbackFunction = jest.fn();
 
 //assign imported function 
-createMainMenuOptions(callbackFunction);
+document.body.appendChild(createMainMenuOptions(callbackFunction));
 const button = document.body.querySelector("button");
 const button2 = document.body.querySelectorAll("button")[2];
 
