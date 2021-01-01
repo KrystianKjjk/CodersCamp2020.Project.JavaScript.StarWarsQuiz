@@ -12,6 +12,7 @@
 }
 
 .mainMenuButton {
+    cursor: pointer;
     height: 50px;
     color: grey;
     font: 2rem Montserrat, sans-serif;
