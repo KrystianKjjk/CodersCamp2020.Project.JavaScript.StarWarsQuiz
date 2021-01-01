@@ -1,3 +1,26 @@
 body {
     font-family: 'Montserrat', sans-serif;
 }
+
+#theBestPlayers {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.rankingTitle {
+    display: grid;
+    grid-column: span 3;
+    text-align: center;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+#theBestPlayers > .header {
+    font-weight: 700;
+}
+
+#theBestPlayers > p {
+    margin: 5px;
+}
