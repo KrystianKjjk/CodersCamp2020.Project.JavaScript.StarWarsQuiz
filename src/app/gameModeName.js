@@ -1,5 +1,5 @@
 const createGameModeName = (modeName) => {
-    let gameModeNameDiv = document.createElement('div');
+    const gameModeNameDiv = document.createElement('div');
     gameModeNameDiv.className = 'gameModeContainer';
     
     switch (modeName) {
@@ -24,8 +24,5 @@ const createGameModeName = (modeName) => {
     document.body.appendChild(gameModeNameDiv); 
     return gameModeNameDiv;
 }
-
-let test = 'People';
-createGameModeName(test);
 
 export default createGameModeName;
