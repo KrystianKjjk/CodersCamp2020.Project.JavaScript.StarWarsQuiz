@@ -22,6 +22,10 @@ const createGameModeName = (modeName) => {
     }
 
     document.body.appendChild(gameModeNameDiv); 
+    return gameModeNameDiv;
 }
+
+let test = 'People';
+createGameModeName(test);
 
 export default createGameModeName;
