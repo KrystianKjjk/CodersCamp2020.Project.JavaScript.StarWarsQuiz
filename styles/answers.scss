@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+$defaultBackground: #fff;
+$correctAnswerBackground: #41ED25;
+$wrongAnswerBackground: #FF0000;
+
+
+.answers-component {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(24rem, 1fr));
+  grid-auto-rows: 4.5rem;
+  gap: 1rem;
+
+  &__button {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    background: $defaultBackground;
+    outline: none;
+    border: none;
+    box-shadow: 0 .1rem .2rem rgba(#000,0.5);
+    border-radius: 1rem;
+    font-size: 2rem;
+    width: inherit;
+    height: inherit;
+    cursor: pointer;
+
+    transition: all .3s;
+
+    &:hover {
+      box-shadow: 0 .2rem .3rem rgba(#000,0.5);
+    }
+
+    &:focus {
+      font-weight: 600;
+    }
+  }
+  &__button--correct {
+    background: $correctAnswerBackground;
+    font-weight: 600;
+    box-shadow: 0px 4px 4px rgba(#000, 0.25), 0px 4px 30px #51FC00;
+
+    &:hover {
+      box-shadow: 0px 4px 4px rgba(#000, 0.25), 0px 4px 30px #51FC00;
+    }
+  }
+  &__button--wrong {
+    background: $wrongAnswerBackground;
+    font-weight: 600;
+    box-shadow: 0px 4px 4px rgba(#000, 0.25), 0px 4px 30px #FF0000;
+
+    &:hover {
+      box-shadow: 0px 4px 4px rgba(#000, 0.25), 0px 4px 30px #FF0000;
+    }
+  }
+
+
+}
+
+@media screen and (max-width: 800px) {
+  .answers-component {
+    grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  }
+}
