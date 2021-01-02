@@ -5,15 +5,19 @@ function modalWindow(component, closeWindow) {
     if ( !(typeof closeWindow === 'function') ){
         throw Error('Second argument should be Function.');
     }
+    const backgroundDiv = document.createElement('div');
     const modalWindowDiv = document.createElement('div');
+    backgroundDiv.className = 'modal-window-bg';
+    backgroundDiv.appendChild(modalWindowDiv);
     modalWindowDiv.appendChild(component);
-    modalWindowDiv.className = 'modal-window-bg';
-    modalWindowDiv.addEventListener('click', (e) => {
+    modalWindowDiv.classList.add('border');
+    modalWindowDiv.classList.add('modal-window');
+    backgroundDiv.addEventListener('click', (e) => {
         e.stopPropagation();
-        if(e.target === modalWindowDiv){
+        if(e.target === backgroundDiv){
             closeWindow();
         }
     })
-    return modalWindowDiv;
+    return backgroundDiv;
 }
 export default modalWindow;
