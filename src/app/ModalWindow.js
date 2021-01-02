@@ -7,11 +7,10 @@ function modalWindow(component, closeWindow) {
     }
     const backgroundDiv = document.createElement('div');
     const modalWindowDiv = document.createElement('div');
-    backgroundDiv.className = 'modal-window-bg';
     backgroundDiv.appendChild(modalWindowDiv);
     modalWindowDiv.appendChild(component);
-    modalWindowDiv.classList.add('border');
-    modalWindowDiv.classList.add('modal-window');
+    backgroundDiv.className = 'modal-window-bg';
+    modalWindowDiv.classList.add('border', 'modal-window');
     backgroundDiv.addEventListener('click', (e) => {
         e.stopPropagation();
         if(e.target === backgroundDiv){
