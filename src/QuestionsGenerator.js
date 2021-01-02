@@ -1,18 +1,19 @@
+import { getPersonById, getPersonImageBlobById, getPeople } from "./PeopleClient";
+
 function generateQuestions(gameMode) {
     if (gameMode === 'People') {
-        return fetch('https://swapi.dev/api/people')
-            .then(response => response.json())
-            .then(json => {
-                let idRange = json.count;
+        return getPeople()
+            .then(people => {
+                let idRange = people.count;
                 const questionsIds = drawQuestionsAndCorrectAnswer(idRange);
                 return Promise.all(
-                        [getPeopleById(questionsIds[0]),
-                            getPeopleById(questionsIds[1]),
-                            getPeopleById(questionsIds[2]),
-                            getPeopleById(questionsIds[3])
+                        [getPersonById(questionsIds[0]),
+                            getPersonById(questionsIds[1]),
+                            getPersonById(questionsIds[2]),
+                            getPersonById(questionsIds[3])
                         ])
                     .then(peopleArray => {
-                        let peopleNamesArray = peopleArray.map(obj => obj.name);
+                        let peopleNamesArray = peopleArray.map(person => person.name);
                         let correctAnswerIdIndex = Math.floor(Math.random() * questionsIds.length);
                         let correctAnswer = peopleNamesArray[correctAnswerIdIndex];
                         const correctAnswerId = questionsIds[correctAnswerIdIndex];
@@ -22,19 +23,12 @@ function generateQuestions(gameMode) {
                             answers: peopleNamesArray,
                             rightAnswer: correctAnswer,
                         }
-                        return fetch(`static/assets/img/modes/people/${correctAnswerId}.jpg`)
-                            .then(response => response.blob())
-                            .then(blob => {
-                                return new Promise((resolve) => {
-                                    let reader = new FileReader();
-                                    reader.readAsDataURL(blob);
-                                    reader.onloadend = function() {
-                                        let base64data = reader.result.substr(reader.result.indexOf(',') + 1);
-                                        questionObject.image = base64data;
-                                        resolve(questionObject);
-                                    }
-                                });
-                            });
+                        return getPersonImageBlobById(correctAnswerId)
+                            .then(convertBlobToBase64)
+                            .then(base64Image => {
+                                questionObject.image = base64Image;
+                                return questionObject;
+                            })
                     });
             });
 
@@ -64,7 +58,13 @@ function drawQuestionsAndCorrectAnswer(idRange) {
     return chosenIds;
 }
 
-
-function getPeopleById(id) {
-    return fetch(`https://swapi.dev/api/people/${id}`).then(response => response.json());
+function convertBlobToBase64(blob) {
+    return new Promise((resolve) => {
+        let reader = new FileReader();
+        reader.readAsDataURL(blob);
+        reader.onloadend = function() {
+            let base64data = reader.result.substr(reader.result.indexOf(',') + 1);
+            resolve(base64data);
+        }
+    });
 }
