@@ -7,8 +7,8 @@ function generateQuestions(gameMode) {
     if (gameMode === 'People') {
         return getPeople()
             .then(people => {
-                let idRange = people.count;
-                const questionsIds = drawQuestions(idRange);
+                const idRange = people.count;
+                const questionsIds = drawQuestionsIds(idRange);
                 return Promise.all(
                         [getPersonById(questionsIds[0]),
                             getPersonById(questionsIds[1]),
@@ -16,12 +16,10 @@ function generateQuestions(gameMode) {
                             getPersonById(questionsIds[3])
                         ])
                     .then(peopleArray => {
-                        let peopleNamesArray = peopleArray.map(person => person.name);
-                        let correctAnswerIdIndex = Math.floor(Math.random() * questionsIds.length);
-                        let correctAnswer = peopleNamesArray[correctAnswerIdIndex];
-                        const correctAnswerId = questionsIds[correctAnswerIdIndex];
+                        const peopleNamesArray = peopleArray.map(person => person.name);
+                        const { correctAnswer, correctAnswerId } = drawCorrectAnswer(questionsIds, peopleNamesArray);
 
-                        let questionObject = {
+                        const questionObject = {
                             image: '',
                             answers: peopleNamesArray,
                             rightAnswer: correctAnswer,
@@ -39,8 +37,8 @@ function generateQuestions(gameMode) {
     } else if (gameMode === 'Starships') {
         return getStarships()
             .then(starship => {
-                let idRange = starship.count;
-                const questionsIds = drawQuestions(idRange);
+                const idRange = starship.count;
+                const questionsIds = drawQuestionsIds(idRange);
                 return Promise.all(
                         [getStarshipById(questionsIds[0]),
                             getStarshipById(questionsIds[1]),
@@ -48,12 +46,10 @@ function generateQuestions(gameMode) {
                             getStarshipById(questionsIds[3])
                         ])
                     .then(starshipsArray => {
-                        let starshipsNamesArray = starshipsArray.map(starship => starship.name);
-                        let correctAnswerIdIndex = Math.floor(Math.random() * questionsIds.length);
-                        let correctAnswer = starshipsNamesArray[correctAnswerIdIndex];
-                        const correctAnswerId = questionsIds[correctAnswerIdIndex];
+                        const starshipsNamesArray = starshipsArray.map(starship => starship.name);
+                        const { correctAnswer, correctAnswerId } = drawCorrectAnswer(questionsIds, starshipsNamesArray);
 
-                        let questionObject = {
+                        const questionObject = {
                             image: '',
                             answers: starshipsNamesArray,
                             rightAnswer: correctAnswer,
@@ -70,8 +66,8 @@ function generateQuestions(gameMode) {
     } else if (gameMode === 'Vehicles') {
         return getVehicles()
             .then(vehicle => {
-                let idRange = vehicle.count;
-                const questionsIds = drawQuestions(idRange);
+                const idRange = vehicle.count;
+                const questionsIds = drawQuestionsIds(idRange);
                 return Promise.all(
                         [getVehicleById(questionsIds[0]),
                             getVehicleById(questionsIds[1]),
@@ -79,12 +75,10 @@ function generateQuestions(gameMode) {
                             getVehicleById(questionsIds[3])
                         ])
                     .then(vehiclesArray => {
-                        let vehiclesNamesArray = vehiclesArray.map(vehicle => vehicle.name);
-                        let correctAnswerIdIndex = Math.floor(Math.random() * questionsIds.length);
-                        let correctAnswer = vehiclesNamesArray[correctAnswerIdIndex];
-                        const correctAnswerId = questionsIds[correctAnswerIdIndex];
+                        const vehiclesNamesArray = vehiclesArray.map(vehicle => vehicle.name);
+                        const { correctAnswer, correctAnswerId } = drawCorrectAnswer(questionsIds, vehiclesNamesArray);
 
-                        let questionObject = {
+                        const questionObject = {
                             image: '',
                             answers: vehiclesNamesArray,
                             rightAnswer: correctAnswer,
@@ -104,14 +98,14 @@ function generateQuestions(gameMode) {
 export default generateQuestions;
 
 
-function drawQuestions(idRange) {
-    let idArray = [];
+function drawQuestionsIds(idRange) {
+    const idArray = [];
     for (let i = 1; i < idRange + 1; i++) {
         idArray.push(i);
     }
-    let chosenIds = [];
+    const chosenIds = [];
     for (let i = 0; i < 4; i++) {
-        let randomNumberIndex = Math.floor(Math.random() * idArray.length);
+        const randomNumberIndex = Math.floor(Math.random() * idArray.length);
         chosenIds.push(idArray[randomNumberIndex]);
         idArray.splice(randomNumberIndex, 1);
     }
@@ -120,11 +114,19 @@ function drawQuestions(idRange) {
 
 function convertBlobToBase64(blob) {
     return new Promise((resolve) => {
-        let reader = new FileReader();
+        const reader = new FileReader();
         reader.readAsDataURL(blob);
         reader.onloadend = function() {
-            let base64data = reader.result.substr(reader.result.indexOf(',') + 1);
+            const base64data = reader.result.substr(reader.result.indexOf(',') + 1);
             resolve(base64data);
         }
     });
+}
+
+
+function drawCorrectAnswer(questionsIds, questionsNames) {
+    const correctAnswerIdIndex = Math.floor(Math.random() * questionsIds.length);
+    const correctAnswer = questionsNames[correctAnswerIdIndex];
+    const correctAnswerId = questionsIds[correctAnswerIdIndex];
+    return { correctAnswer, correctAnswerId };
 }
