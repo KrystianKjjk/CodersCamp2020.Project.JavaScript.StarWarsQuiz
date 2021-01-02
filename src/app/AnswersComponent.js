@@ -1,11 +1,15 @@
-function displayAnswersComponent(possibleAnswers = ['Luke Skywalker', 'Jar Jar Binksa', 'Padme Amidala', 'Darth Vader'],
-                                 correctAnswer = 'Luke Skywalker', callback){
+function displayAnswersComponent(possibleAnswers = [], correctAnswer = '', callback){
+
+  if(possibleAnswers.length === 0) throw Error('Possible answers not passed');
+  if(correctAnswer.length === 0) throw Error('Correct answer not passed')
+  if(possibleAnswers.length !== 4) throw 'Invalid number of answers';
+
   const maxLengthOfDisplayedAnswer = 20;
   let isAnswered = false;
 
   const buttons = document.querySelectorAll('.answers-component__button');
   if(!buttons.length) throw Error('Answers component does not exist in DOM.');
-  if(buttons.length != 4) throw ('Invalid number of buttons');
+  if(buttons.length !== 4) throw ('Invalid number of buttons.');
 
   buttons.forEach( (button, index) => {
     let answer = possibleAnswers[index];
