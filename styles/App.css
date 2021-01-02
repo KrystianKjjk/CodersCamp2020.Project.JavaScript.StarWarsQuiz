@@ -1,3 +1,22 @@
 body {
     font-family: 'Montserrat', sans-serif;
 }
+
+.white-icon-button {
+    background-color: white;
+    text-transform: uppercase;
+    color: black;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 2em;
+    width: 100%;
+    padding: 10px 2px 10px 2px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.3);
+    border: none;
+}
+
+.white-icon-button span {
+    padding-left: 10px;
+}
