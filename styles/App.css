@@ -39,8 +39,9 @@ body {
 }
 
 .rankingTitle {
-    display: grid;
+    display: inline;
     grid-column: span 3;
+    padding: 0 15px;
     text-align: center;
     font-weight: 600;
     font-size: 25px;
