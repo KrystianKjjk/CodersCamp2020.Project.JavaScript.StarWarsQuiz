@@ -9,12 +9,12 @@ function generateQuestions(gameMode) {
             .then(people => {
                 const idRange = people.count;
                 const questionsIds = drawQuestionsIds(idRange);
-                return Promise.all(
-                        [getPersonById(questionsIds[0]),
-                            getPersonById(questionsIds[1]),
-                            getPersonById(questionsIds[2]),
-                            getPersonById(questionsIds[3])
-                        ])
+                return Promise.all([
+                        getPersonById(questionsIds[0]),
+                        getPersonById(questionsIds[1]),
+                        getPersonById(questionsIds[2]),
+                        getPersonById(questionsIds[3])
+                    ])
                     .then(peopleArray => {
                         const peopleNamesArray = peopleArray.map(person => person.name);
                         const { correctAnswer, correctAnswerId } = drawCorrectAnswer(questionsIds, peopleNamesArray);
@@ -39,12 +39,12 @@ function generateQuestions(gameMode) {
             .then(starship => {
                 const idRange = starship.count;
                 const questionsIds = drawQuestionsIds(idRange);
-                return Promise.all(
-                        [getStarshipById(questionsIds[0]),
-                            getStarshipById(questionsIds[1]),
-                            getStarshipById(questionsIds[2]),
-                            getStarshipById(questionsIds[3])
-                        ])
+                return Promise.all([
+                        getStarshipById(questionsIds[0]),
+                        getStarshipById(questionsIds[1]),
+                        getStarshipById(questionsIds[2]),
+                        getStarshipById(questionsIds[3])
+                    ])
                     .then(starshipsArray => {
                         const starshipsNamesArray = starshipsArray.map(starship => starship.name);
                         const { correctAnswer, correctAnswerId } = drawCorrectAnswer(questionsIds, starshipsNamesArray);
@@ -62,18 +62,17 @@ function generateQuestions(gameMode) {
                             })
                     });
             });
-
     } else if (gameMode === 'Vehicles') {
         return getVehicles()
             .then(vehicle => {
                 const idRange = vehicle.count;
                 const questionsIds = drawQuestionsIds(idRange);
-                return Promise.all(
-                        [getVehicleById(questionsIds[0]),
-                            getVehicleById(questionsIds[1]),
-                            getVehicleById(questionsIds[2]),
-                            getVehicleById(questionsIds[3])
-                        ])
+                return Promise.all([
+                        getVehicleById(questionsIds[0]),
+                        getVehicleById(questionsIds[1]),
+                        getVehicleById(questionsIds[2]),
+                        getVehicleById(questionsIds[3])
+                    ])
                     .then(vehiclesArray => {
                         const vehiclesNamesArray = vehiclesArray.map(vehicle => vehicle.name);
                         const { correctAnswer, correctAnswerId } = drawCorrectAnswer(questionsIds, vehiclesNamesArray);
