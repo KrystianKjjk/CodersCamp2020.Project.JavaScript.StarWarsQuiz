@@ -1,5 +1,14 @@
+@import '../styles/gameModeName.css';
+@import '../styles/MainMenuOptions.css';
+
 body {
     font-family: 'Montserrat', sans-serif;
+    background-image: url(../static/assets/ui/QuizBackground.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    min-height: 100vh;
+    margin: 0px;
 }
 
 #howToPlay {
@@ -23,4 +32,61 @@ p {
     font-size: 15px;
     text-align: left;
     padding: 0 100px;
+}
+
+.red-button {
+    background-color: red;
+    text-transform: uppercase;
+    color: white;
+    padding: 10px 0 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 5px rgba(255, 0, 0, 0.3);
+    border: none;
+}
+
+.white-icon-button {
+    background-color: white;
+    text-transform: uppercase;
+    color: black;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 2em;
+    width: 100%;
+    padding: 10px 2px 10px 2px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.3);
+    border: none;
+}
+
+.white-icon-button span {
+    padding-left: 10px;
+}
+
+#menu-logo img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#theBestPlayers {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.rankingTitle {
+    display: grid;
+    grid-column: span 3;
+    text-align: center;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+#theBestPlayers > .header {
+    font-weight: 700;
+}
+
+#theBestPlayers > p {
+    margin: 5px;
 }

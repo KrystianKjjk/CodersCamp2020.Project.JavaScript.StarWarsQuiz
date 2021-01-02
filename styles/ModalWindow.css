@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.modal-window-bg {
+    display: flex;
+    position: fixed;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
