@@ -1,6 +1,21 @@
+import generateQuestions from '../src/QuestionsGenerator';
+
 describe('Questions Generator tests', () => {
 
-    test('properly draw four other numbers', () => {
-        expect(1).toBe(1);
+    test('should throw error when invalid game mode', () => {
+        expect(() => generateQuestions('invalidGameMode')).toThrow('Invalid game mode');
     })
+
+    test('should generate questions for people game mode', () => {
+
+    })
+
+    test('should generate questions for starships game mode', () => {
+
+    })
+
+    test('should generate questions for vehicles game mode', () => {
+
+    })
+
 })
