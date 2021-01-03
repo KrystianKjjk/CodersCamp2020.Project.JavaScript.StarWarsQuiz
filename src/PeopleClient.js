@@ -1,10 +1,11 @@
-function getPersonById(id) {
-    return fetch(`https://swapi.dev/api/people/${id}`).then(response => response.json());
+async function getPersonById(id) {
+    const person = await fetch(`https://swapi.dev/api/people/${id}`);
+    return person.json();
 }
 
-function getPersonImageBlobById(personId) {
-    return fetch(`static/assets/img/modes/people/${personId}.jpg`)
-        .then(response => response.blob())
+async function getPersonImageBlobById(personId) {
+    const image = await fetch(`static/assets/img/modes/people/${personId}.jpg`)
+    return image.blob();
 }
 
 export { getPersonById, getPersonImageBlobById };
