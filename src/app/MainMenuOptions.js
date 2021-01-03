@@ -1,5 +1,7 @@
+import MODES from "../app/GameModes.js"
+
 const createMainMenuOptions = (optionFunction) => {
-    let options = ['People', 'Vehicles', 'Starships'];
+    let options = MODES;
     let mainMenuDiv, menuButton, buttonText;
 
     mainMenuDiv = document.createElement('div'); //create container for menu
@@ -7,9 +9,13 @@ const createMainMenuOptions = (optionFunction) => {
 
     //nested button onclick function for changing the active styling
     const menuButtonOnclick = (event) => {
-        const buttons = document.querySelectorAll('.mainMenuButton'); //get all buttons
-        for (let i = 0; i < buttons.length; i++) { //remove active class from all buttons
-            buttons[i].className = 'mainMenuButton';
+        const buttons = document.querySelectorAll('.mainMenuButton'); 
+        
+        //remove active class from all buttons
+        for (let i = 0; i < buttons.length; i++) { 
+            if(buttons[i].classList.contains('active')){
+                buttons[i].classList.remove('active');
+            }
         }
         event.target.classList.add('active'); //set current button's class to active
 
@@ -18,7 +24,7 @@ const createMainMenuOptions = (optionFunction) => {
     }
 
     //create buttons and append to menu container
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < options.length; i++) {
         menuButton = document.createElement('button');
         menuButton.className = 'mainMenuButton';
         menuButton.addEventListener("click", menuButtonOnclick)
@@ -28,7 +34,7 @@ const createMainMenuOptions = (optionFunction) => {
         mainMenuDiv.appendChild(menuButton);
     }
 
-    //append menu to body, to be changed once there will be a place to append
+    //return container with buttons
     return mainMenuDiv;
 }
 
