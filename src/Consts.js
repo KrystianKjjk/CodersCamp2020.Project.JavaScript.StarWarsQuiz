@@ -1,5 +1,5 @@
 export const GameModes = {
     PEOPLE: "People",
-    STARCHIPS: "Starships",
+    STARSHIPS: "Starships",
     VEHICLES: "Vehicles"
 }

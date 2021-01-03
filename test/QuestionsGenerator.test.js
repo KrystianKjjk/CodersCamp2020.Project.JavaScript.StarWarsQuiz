@@ -10,7 +10,6 @@ describe('Questions Generator tests', () => {
 
     test('should generate questions for people game mode', async() => {
         jest.spyOn(global.Math, "random");
-        jest.spyOn(PeopleClient, "getPeople").mockResolvedValue({ count: 82 });
         jest.spyOn(PeopleClient, "getPersonById").mockResolvedValueOnce({ name: "Barriss Offee" })
             .mockResolvedValueOnce({ name: "Obi-Wan Kenobi" })
             .mockResolvedValueOnce({ name: "Ratts Tyerel" })
