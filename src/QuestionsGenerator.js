@@ -1,10 +1,12 @@
+import { GameModes } from "./Consts";
 import { getPersonById, getPersonImageBlobById, getPeople } from "./PeopleClient";
 import { getStarshipById, getStarshipImageBlobById, getStarships } from "./StarshipsClient";
 import { getVehicleById, getVehicleImageBlobById, getVehicles } from "./VehiclesClient";
 
 
+
 function generateQuestions(gameMode) {
-    if (gameMode === 'People') {
+    if (gameMode === GameModes.PEOPLE) {
         return getPeople()
             .then(people => {
                 const idRange = people.count;
@@ -34,7 +36,7 @@ function generateQuestions(gameMode) {
             });
 
 
-    } else if (gameMode === 'Starships') {
+    } else if (gameMode === GameModes.STARCHIPS) {
         return getStarships()
             .then(starship => {
                 const idRange = starship.count;
@@ -62,7 +64,7 @@ function generateQuestions(gameMode) {
                             })
                     });
             });
-    } else if (gameMode === 'Vehicles') {
+    } else if (gameMode === GameModes.VEHICLES) {
         return getVehicles()
             .then(vehicle => {
                 const idRange = vehicle.count;
