@@ -1,4 +1,4 @@
-import GenerateQuestions from "../QuestionsGenerator";
+import generateQuestions from "../QuestionsGenerator";
 export const App = ({ options }) => {
-    GenerateQuestions('People').then(questionObject => console.log(questionObject));
+    generateQuestions('People').then(questionObject => console.log(questionObject));
 }

@@ -1,12 +1,12 @@
-async function GetStarshipById(id) {
+async function getStarshipById(id) {
     const starship = await fetch(`https://swapi.dev/api/starships/${id}`);
     return starship.json();
 }
 
 
-async function GetStarshipImageBlobById(starshipId) {
+async function getStarshipImageBlobById(starshipId) {
     const image = await fetch(`static/assets/img/modes/starships/${starshipId}.jpg`);
     return image.blob();
 }
 
-export { GetStarshipById, GetStarshipImageBlobById };
+export { getStarshipById, getStarshipImageBlobById };
