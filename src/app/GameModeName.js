@@ -1,24 +1,28 @@
+import MODES from "../app/GameModes.js"
+
 const createGameModeName = (modeName) => {
+    const people = MODES[0];
+    const vehicles = MODES[1];
+    const starships = MODES[2];
+
     const gameModeNameDiv = document.createElement('div');
     gameModeNameDiv.className = 'gameModeContainer';
-    
+
     switch (modeName) {
-        case 'People':
+        case people:
             gameModeNameDiv.textContent = 'Who is this character?';
             break;
-        case 'Vehicles':
+        case vehicles:
             gameModeNameDiv.textContent = 'Do you recognize this vehicle?';
             break;
-        case 'Starships':
+        case starships:
             gameModeNameDiv.textContent = 'Do you recognize this starship?';
             break;
         default:
             gameModeNameDiv.textContent = 'Unknown game mode';
-            throw 'Mode name argument was not passed to the createGameModeName component!'
+            throw 'Mode name argument was not passed to the createGameModeName component or the argument was invalid'
     }
-
-    document.body.appendChild(gameModeNameDiv); 
-    return gameModeNameDiv;
+    return gameModeNameDiv;    
 }
 
 export default createGameModeName;

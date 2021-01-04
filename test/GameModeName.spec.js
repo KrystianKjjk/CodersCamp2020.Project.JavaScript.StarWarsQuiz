@@ -1,4 +1,4 @@
-import createGameModeName from "../src/app/gameModeName.js";
+import createGameModeName from "../src/app/GameModeName.js";
 
 let sampleModeName = 'People'; 
 
@@ -12,6 +12,6 @@ describe('Game Mode Name component test', () => {
     })
     it('check if the error will be thrown if function argument was not passed', () =>{
         document.body.innerHTML = ''; //removing the previously created div
-        expect(createGameModeName).toThrowError('Mode name argument was not passed to the createGameModeName component!');
+        expect(createGameModeName).toThrowError();
     })
 })
