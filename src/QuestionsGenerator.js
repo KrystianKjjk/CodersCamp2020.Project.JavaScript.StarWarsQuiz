@@ -6,6 +6,9 @@ import { getVehicleById, getVehicleImageBlobById } from "./VehiclesClient";
 
 
 async function generateQuestions(gameMode) {
+    let answers;
+    let rightAnswer;
+    let imageBase64;
     if (gameMode === GameModes.PEOPLE) {
         const allowedIds = [];
         for (let i = 1; i < 83; i++) {
@@ -20,19 +23,12 @@ async function generateQuestions(gameMode) {
             getPersonById(questionsIds[2]),
             getPersonById(questionsIds[3])
         ]);
-        const peopleNamesArray = peopleArray.map(person => person.name);
-        const { correctAnswer, correctAnswerId } = drawCorrectAnswer(questionsIds, peopleNamesArray);
-
-        const questionObject = {
-            image: '',
-            answers: peopleNamesArray,
-            rightAnswer: correctAnswer,
-        }
-
+        answers = peopleArray.map(person => person.name);
+        const { correctAnswer, correctAnswerId } = drawCorrectAnswer(questionsIds, answers);
+        rightAnswer = correctAnswer;
         const imageBlob = await getPersonImageBlobById(correctAnswerId);
-        const imageBase64 = await convertBlobToBase64(imageBlob);
-        questionObject.image = imageBase64;
-        return questionObject;
+        imageBase64 = await convertBlobToBase64(imageBlob);
+
 
     } else if (gameMode === GameModes.STARSHIPS) {
         const allowedIds = [5, 9, 10, 11, 12, 13, 15, 21, 22, 23, 27, 28, 29, 31, 39, 40, 41, 43, 47, 48];
@@ -87,6 +83,13 @@ async function generateQuestions(gameMode) {
     } else {
         throw new Error('Invalid game mode');
     }
+
+    const questionObject = {
+        image: imageBase64,
+        answers: answers,
+        rightAnswer: rightAnswer,
+    }
+    return questionObject;
 }
 export default generateQuestions;
 
