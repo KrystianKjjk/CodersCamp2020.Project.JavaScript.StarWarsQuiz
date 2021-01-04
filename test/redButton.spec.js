@@ -1,20 +1,30 @@
-import redButton from "../src/app/redButton";
+import redButton from "../src/app/RedButton";
 
 describe('Red Button tests', () => {
     it('returns HTMLButtonElement', () => {
-        const button = redButton('Play the Game');
+        const onClick = jest.fn();
+        const button = redButton('Play the Game', onClick);
         expect(button).toBeInstanceOf(HTMLButtonElement);
     })
 
-    it('only accepts strings as arguments', () => {
-        expect(() => redButton(12)).toThrowError('Label is not string.');
-        expect(() => redButton({})).toThrowError('Label is not string.');
-        expect(() => redButton([])).toThrowError('Label is not string.');
-        expect(() => redButton(() => {})).toThrowError('Label is not string.');
+    it('only accepts strings as first argument', () => {
+        const onClick = jest.fn();
+        expect(() => redButton(12, onClick)).toThrowError('Label should be a string.');
+        expect(() => redButton({}, onClick)).toThrowError('Label should be a string.');
+        expect(() => redButton([], onClick)).toThrowError('Label should be a string.');
+        expect(() => redButton(() => {}, onClick)).toThrowError('Label should be a string.');
     })
 
     it('has correct class name applied', () => {
-        const button = redButton('Play the Game');
-        expect(button.className).toEqual('red-button');
+        const onClick = jest.fn();
+        const button = redButton('Play the Game', onClick);
+        expect(button.className).toEqual('button red-button');
+    })
+
+    it('fires onClick function on clicking component', () => {
+        const onClick = jest.fn();
+        const button = redButton('Play the Game', onClick);
+        button.click();
+        expect(onClick).toHaveBeenCalledTimes(1);
     })
 });
