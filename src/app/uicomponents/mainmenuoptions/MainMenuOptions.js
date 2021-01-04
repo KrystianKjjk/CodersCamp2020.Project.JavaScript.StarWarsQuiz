@@ -1,4 +1,4 @@
-import MODES from "../app/GameModes.js"
+import MODES from "../GameModes.js"
 
 const createMainMenuOptions = (optionFunction) => {
     let options = MODES;
