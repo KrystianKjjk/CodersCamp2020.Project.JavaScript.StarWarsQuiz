@@ -1,11 +1,11 @@
 import { async } from "regenerator-runtime";
 import { GameModes } from "./Consts";
-import { getPersonById, getPersonImageBlobById } from "./PeopleClient";
-import { getStarshipById, getStarshipImageBlobById } from "./StarshipsClient";
-import { getVehicleById, getVehicleImageBlobById } from "./VehiclesClient";
+import { GetPersonById, GetPersonImageBlobById } from "./PeopleClient";
+import { GetStarshipById, GetStarshipImageBlobById } from "./StarshipsClient";
+import { GetVehicleById, GetVehicleImageBlobById } from "./VehiclesClient";
 
 
-async function generateQuestions(gameMode) {
+async function GenerateQuestions(gameMode) {
     let answers;
     let rightAnswer;
     let imageBlob;
@@ -16,55 +16,55 @@ async function generateQuestions(gameMode) {
             allowedIds.push(i);
         }
 
-        const questionsIds = drawQuestionsIds(allowedIds);
+        const questionsIds = DrawQuestionsIds(allowedIds);
         const peopleArray = await Promise.all([
-            getPersonById(questionsIds[0]),
-            getPersonById(questionsIds[1]),
-            getPersonById(questionsIds[2]),
-            getPersonById(questionsIds[3])
+            GetPersonById(questionsIds[0]),
+            GetPersonById(questionsIds[1]),
+            GetPersonById(questionsIds[2]),
+            GetPersonById(questionsIds[3])
         ]);
         answers = peopleArray.map(person => person.name);
-        const { correctAnswer, correctAnswerId } = drawCorrectAnswer(questionsIds, answers);
+        const { correctAnswer, correctAnswerId } = DrawCorrectAnswer(questionsIds, answers);
         rightAnswer = correctAnswer;
-        imageBlob = await getPersonImageBlobById(correctAnswerId);
+        imageBlob = await GetPersonImageBlobById(correctAnswerId);
 
     } else if (gameMode === GameModes.STARSHIPS) {
         const allowedIds = [5, 9, 10, 11, 12, 13, 15, 21, 22, 23, 27, 28, 29, 31, 39, 40, 41, 43, 47, 48];
 
-        const questionsIds = drawQuestionsIds(allowedIds);
+        const questionsIds = DrawQuestionsIds(allowedIds);
         const starshipsArray = await Promise.all([
-            getStarshipById(questionsIds[0]),
-            getStarshipById(questionsIds[1]),
-            getStarshipById(questionsIds[2]),
-            getStarshipById(questionsIds[3])
+            GetStarshipById(questionsIds[0]),
+            GetStarshipById(questionsIds[1]),
+            GetStarshipById(questionsIds[2]),
+            GetStarshipById(questionsIds[3])
         ])
 
         answers = starshipsArray.map(starship => starship.name);
-        const { correctAnswer, correctAnswerId } = drawCorrectAnswer(questionsIds, answers);
+        const { correctAnswer, correctAnswerId } = DrawCorrectAnswer(questionsIds, answers);
         rightAnswer = correctAnswer;
-        imageBlob = await getStarshipImageBlobById(correctAnswerId);
+        imageBlob = await GetStarshipImageBlobById(correctAnswerId);
 
 
     } else if (gameMode === GameModes.VEHICLES) {
         const allowedIds = [4, 6, 7, 8, 14, 16, 18, 20, 24, 25, 26, 30, 33, 34, 35, 36, 37, 38, 42];
 
-        const questionsIds = drawQuestionsIds(allowedIds);
+        const questionsIds = DrawQuestionsIds(allowedIds);
         const vehiclesArray = await Promise.all([
-            getVehicleById(questionsIds[0]),
-            getVehicleById(questionsIds[1]),
-            getVehicleById(questionsIds[2]),
-            getVehicleById(questionsIds[3])
+            GetVehicleById(questionsIds[0]),
+            GetVehicleById(questionsIds[1]),
+            GetVehicleById(questionsIds[2]),
+            GetVehicleById(questionsIds[3])
         ])
 
         answers = vehiclesArray.map(vehicle => vehicle.name);
-        const { correctAnswer, correctAnswerId } = drawCorrectAnswer(questionsIds, answers);
+        const { correctAnswer, correctAnswerId } = DrawCorrectAnswer(questionsIds, answers);
         rightAnswer = correctAnswer;
-        imageBlob = await getVehicleImageBlobById(correctAnswerId)
+        imageBlob = await GetVehicleImageBlobById(correctAnswerId)
 
     } else {
         throw new Error('Invalid game mode');
     }
-    const imageBase64 = await convertBlobToBase64(imageBlob);
+    const imageBase64 = await ConvertBlobToBase64(imageBlob);
     const questionObject = {
         image: imageBase64,
         answers: answers,
@@ -72,10 +72,10 @@ async function generateQuestions(gameMode) {
     }
     return questionObject;
 }
-export default generateQuestions;
+export default GenerateQuestions;
 
 
-function drawQuestionsIds(allowedIdArray) {
+function DrawQuestionsIds(allowedIdArray) {
     const chosenIds = [];
     for (let i = 0; i < 4; i++) {
         const randomNumberIndex = Math.floor(Math.random() * allowedIdArray.length);
@@ -85,7 +85,7 @@ function drawQuestionsIds(allowedIdArray) {
     return chosenIds;
 }
 
-function convertBlobToBase64(blob) {
+function ConvertBlobToBase64(blob) {
     return new Promise((resolve) => {
         const reader = new FileReader();
         reader.readAsDataURL(blob);
@@ -97,7 +97,7 @@ function convertBlobToBase64(blob) {
 }
 
 
-function drawCorrectAnswer(questionsIds, questionsNames) {
+function DrawCorrectAnswer(questionsIds, questionsNames) {
     const correctAnswerIdIndex = Math.floor(Math.random() * questionsIds.length);
     const correctAnswer = questionsNames[correctAnswerIdIndex];
     const correctAnswerId = questionsIds[correctAnswerIdIndex];
