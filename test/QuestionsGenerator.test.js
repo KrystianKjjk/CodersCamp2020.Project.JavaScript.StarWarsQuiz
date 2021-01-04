@@ -1,8 +1,8 @@
-import generateQuestions from '../src/QuestionsGenerator';
-import * as PeopleClient from '../src/PeopleClient';
-import * as StarshipsClient from '../src/StarshipsClient';
-import * as VehiclesClient from '../src/VehiclesClient';
-import { GameModes } from '../src/Consts';
+import generateQuestions from '../src/app/logic/questionsGenerator/QuestionsGenerator';
+import * as PeopleClient from '../src/app/apiconnection/PeopleClient';
+import * as StarshipsClient from '../src/app/apiconnection/StarshipsClient';
+import * as VehiclesClient from '../src/app/apiconnection/VehiclesClient';
+import { GameModes } from '../src/app/Consts';
 
 const mockBlob = new Blob(["Hello, world!"], { type: 'text/plain' });
 
@@ -27,10 +27,10 @@ describe('Questions Generator tests', () => {
         jest.spyOn(PeopleClient, "getPersonImageBlobById").mockResolvedValueOnce(mockBlob);
 
         const questionObject = await generateQuestions(GameModes.PEOPLE);
-        expect(questionObject.answers.length).toBe(4); //Pytanie zawsze musi miec 4 odpowiedzi
-        expect(questionObject.answers.includes(questionObject.rightAnswer)).toBeTruthy(); //Prawidlowa odpowiedz musi byc jedna z wylosowanych odpowiedzi
-        expect(questionObject.image).toBeDefined(); //Image musi byc obecny
-        expect(global.Math.random).toHaveBeenCalledTimes(5); //Math.random musi byc wywolane zawsze 5 razy (4 razy przy pierwszym losowaniu i raz przy drugim)
+        expect(questionObject.answers.length).toBe(4);
+        expect(questionObject.answers.includes(questionObject.rightAnswer)).toBeTruthy();
+        expect(questionObject.image).toBeDefined();
+        expect(global.Math.random).toHaveBeenCalledTimes(5);
         expect(PeopleClient.getPersonById).toHaveBeenCalledTimes(4);
         expect(PeopleClient.getPersonImageBlobById).toHaveBeenCalledTimes(1);
     })
