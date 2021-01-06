@@ -1,4 +1,4 @@
-import MODES from "../app/GameModes.js"
+import MODES from "../GameModes.js"
 
 const createGameModeName = (modeName) => {
     const people = MODES[0];

@@ -1,4 +1,4 @@
-import createGameModeName from "../src/app/GameModeName.js";
+import createGameModeName from "../src/app/uicomponents/gamemodename/GameModeName.js";
 
 let sampleModeName = 'People'; 
 
