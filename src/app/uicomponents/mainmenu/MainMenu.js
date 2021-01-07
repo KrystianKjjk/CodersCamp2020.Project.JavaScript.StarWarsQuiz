@@ -85,18 +85,19 @@ async function returnImageBase64(){
 }
 
 function switchRuleswithRanking () {
-    const RulesDisplayed = document.body.querySelector('#howToPlay');
-    const RankingDisplayed = document.body.querySelector('#theBestPlayers');
+    let RulesDisplayed = document.body.querySelector('#howToPlay');
+    let RankingDisplayed = document.body.querySelector('#theBestPlayers');
     const menuDiv = document.body.querySelector('.menus');
 
     if(RulesDisplayed){
-        //USERS TO BE ADDED HERE FROM THE FUNCTION RETURNING THE USERS LIST
-        const rankingDiv = displayRanking(
+        
+    //USERS TO BE ADDED HERE FROM THE FUNCTION RETURNING THE USERS LIST
+        const data = [
         { name: 'Ania', points: '15/20' },
         { name: 'Mateusz', points: '14/30' },
-        { name: 'Julia', points: '10/30' },
-        { name: 'Leia Organa', points: '1/23' }
-        );
+        { name: 'Julia', points: '10/30' }
+        ];
+        const rankingDiv = displayRanking(data);
         RulesDisplayed = menuDiv.replaceChild(rankingDiv,RulesDisplayed);
     }
     else {
@@ -106,9 +107,10 @@ function switchRuleswithRanking () {
             rulesDiv = generateModeNameAndRules(isModeButtonActive.innerHTML);
         }
         else{
-            rulesDiv = generateModeNameAndRules(GameModes.DEFAULT);
+            rulesDiv = generateModeNameAndRules('Default');
         }
-        RankingDisplayed = menuDiv.replaceChild(rulesDiv,RankingDisplayed);
+        console.log(rulesDiv);
+        RankingDisplayed = menuDiv.replaceChild(rulesDiv[1],RankingDisplayed);
     }
 }
 
