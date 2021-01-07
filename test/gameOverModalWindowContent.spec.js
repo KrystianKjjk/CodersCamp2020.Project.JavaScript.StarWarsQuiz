@@ -28,17 +28,18 @@ describe('Game Over Modal Window Content test', () => {
     describe('component should contain paragraph with summary text', () => {
         it('Summary text should contain number of correct answers and number of asked questions', () => {
             const numberOfTests = 10;
-            const ANSWERS = ['A', 'B', 'C', 'D'];
+            const ANSWERS_ABCD = ['A', 'B', 'C', 'D'];
             const answers = [{human: 'A', computer: 'B', correct: 'C', image: 'img1'}, {human: 'B', computer: 'C', correct: 'D', image: 'img2'}];
             const cb = jest.fn()
             let component = gameOverModalWindowContent(answers, cb);
             for(let i = 0; i < numberOfTests; i++){
                 answers.push({
-                    human: ANSWERS[Math.floor(Math.random() * 4)],
-                    computer: ANSWERS[Math.floor(Math.random() * 4)],
-                    correct: ANSWERS[Math.floor(Math.random() * 4)],
+                    human: ANSWERS_ABCD[Math.floor(Math.random() * 4)],
+                    computer: ANSWERS_ABCD[Math.floor(Math.random() * 4)],
+                    correct: ANSWERS_ABCD[Math.floor(Math.random() * 4)],
                     image: `img${i}`
                 });
+                component = gameOverModalWindowContent(answers, cb);
                 expect(component.innerHTML.includes(`${answers.filter( (answer) => answer.human === answer.correct ).length}`)).toBe(true);
                 expect(component.innerHTML.includes(`${answers.filter( (answer) => answer.computer === answer.correct ).length}`)).toBe(true);
                 expect(component.innerHTML.includes(`${answers.length}`)).toBe(true);
