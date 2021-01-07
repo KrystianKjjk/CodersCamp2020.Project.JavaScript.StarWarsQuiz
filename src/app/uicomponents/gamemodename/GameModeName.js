@@ -4,7 +4,7 @@ const createGameModeName = (modeName) => {
     const people = GameModes.PEOPLE;
     const vehicles = GameModes.VEHICLES;
     const starships = GameModes.STARSHIPS;
-    const start = GameModes.DEFAULT;
+    const start = 'Default';
 
     const gameModeNameDiv = document.createElement('div');
     gameModeNameDiv.className = 'gameModeContainer';
@@ -22,7 +22,7 @@ const createGameModeName = (modeName) => {
             gameModeNameDiv.textContent = 'Select game mode';
             break;
         default:
-            throw 'Mode name argument was not passed to the createGameModeName component or the argument was invalid'
+            throw 'Mode name argument was not passed to the createGameModeName component or the argument was invalid';
     }
     return gameModeNameDiv;
 }

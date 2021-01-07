@@ -9,11 +9,11 @@ const createMainMenuOptions = (optionFunction) => {
 
     //nested button onclick function for changing the active styling
     const menuButtonOnclick = (event) => {
-        const buttons = document.querySelectorAll('.mainMenuButton'); 
-        
+        const buttons = document.querySelectorAll('.mainMenuButton');
+
         //remove active class from all buttons
-        for (let i = 0; i < buttons.length; i++) { 
-            if(buttons[i].classList.contains('active')){
+        for (let i = 0; i < buttons.length; i++) {
+            if (buttons[i].classList.contains('active')) {
                 buttons[i].classList.remove('active');
             }
         }
@@ -23,16 +23,18 @@ const createMainMenuOptions = (optionFunction) => {
         const modeName = event.target.id;
         const generatedNameAndRules = optionFunction(modeName);
 
-        const mainMenuDiv = document.querySelector('.mainMenu');
-        
-        //replace name div
-        let oldNameDiv = document.querySelector('.gameModeContainer');        
-        oldNameDiv = mainMenuDiv.replaceChild(generatedNameAndRules[0], oldNameDiv);
+        const mainMenuDiv = document.querySelector('.menus');
+        if (mainMenuDiv) {
+            //replace name div
+            let oldNameDiv = document.querySelector('.gameModeContainer');
+            oldNameDiv = mainMenuDiv.replaceChild(generatedNameAndRules[0], oldNameDiv);
 
-        //replace rules div
-        let oldRulesDiv = document.querySelector('#howToPlay');
-        oldRulesDiv = mainMenuDiv.replaceChild(generatedNameAndRules[1], oldRulesDiv);
+            //replace rules div
+            let oldRulesDiv = document.querySelector('#howToPlay');
+            oldRulesDiv = mainMenuDiv.replaceChild(generatedNameAndRules[1], oldRulesDiv);
+        }
     }
+
 
     //create buttons and append to menu container
     for (const property in options) {
