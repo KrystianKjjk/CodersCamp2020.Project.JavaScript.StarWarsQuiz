@@ -54,7 +54,7 @@ describe('Game Over Modal Window Content test', () => {
         const uls = Array.from(component.getElementsByTagName('ul'));
         const passed = uls.some( (ul) => {
             const items = Array.from(ul.getElementsByTagName('li'));
-            return items.every( (item) => item.getElementsByTagName('img') !== null );
+            return items.every( (item) => item.getElementsByTagName('img').length === 1 );
         });
         expect(passed).toBe(true);
     })
@@ -63,8 +63,8 @@ describe('Game Over Modal Window Content test', () => {
         const answers = [{human: 'A', computer: 'B', correct: 'C', image: 'img1'}, {human: 'B', computer: 'C', correct: 'D', image: 'img2'}];
         const cb = jest.fn()
         const component = gameOverModalWindowContent(answers, cb);
-        expect(component.querySelector('input[type="text"]')).not.toBeNull();
-        expect(component.querySelector('input[type="text"]').required).toBe(true);
+        expect(component.querySelector('input[type=text]')).not.toBeNull();
+        expect(component.querySelector('input[type=text]').required).toBe(true);
     })
 
     it('when button clicked, call callback function', () => {
