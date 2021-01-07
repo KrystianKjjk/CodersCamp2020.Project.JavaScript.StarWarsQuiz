@@ -1,4 +1,4 @@
-import peopleImageToRecognize from '../src/app/PeopleImageToRecognize';
+import peopleImageToRecognize from '../src/app/uicomponents/people_image_to_recognize/PeopleImageToRecognize.js';
 
 describe('peopleImageToRecognize test', () => {
     it("check parameter", () => {
