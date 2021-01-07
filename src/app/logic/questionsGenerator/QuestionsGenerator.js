@@ -11,8 +11,10 @@ async function generateQuestions(gameMode) {
     let imageBlob;
     if (gameMode === GameModes.PEOPLE) {
         const allowedIds = [];
-        for (let i = 1; i < 83; i++) {
-            if (i === 17) continue;
+        const personAmount = 82;
+        const excludedId = 17;
+        for (let i = 1; i <= personAmount; i++) {
+            if (i === excludedId) continue;
             allowedIds.push(i);
         }
 
