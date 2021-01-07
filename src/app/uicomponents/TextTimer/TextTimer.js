@@ -1,17 +1,15 @@
 function generateTextTimerComponent() {
     const timerDiv = document.createElement('div');
 
-    let gameTime = 10;
+    let gameTime = 61;
     let getTime = setInterval(() => {
 
         const timeObject = generateMinutesAndSeconds(gameTime);
-        //timerDiv.innerHTML = ;
-        console.log(timeObject.minutes + ':' + timeObject.seconds);
+        timerDiv.innerHTML = 'Time left: ' + timeObject.minutes + 'm ' + timeObject.seconds + 's';
         if (gameTime === 0) { clearInterval(getTime); }
         gameTime = gameTime - 1;
     }, 1000);
 
-    //uzyskany czas umiescic w divie i zwrocic ten div z funkcji
     return timerDiv;
 }
 
