@@ -1,4 +1,4 @@
-import redButton from "../src/app/RedButton";
+import redButton from "../src/app/uicomponents/RedButton/RedButton";
 
 describe('Red Button tests', () => {
     it('returns HTMLButtonElement', () => {
