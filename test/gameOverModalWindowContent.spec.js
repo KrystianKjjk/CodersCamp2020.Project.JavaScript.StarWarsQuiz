@@ -50,14 +50,11 @@ describe('Game Over Modal Window Content test', () => {
     it('component should contain vertically scrollable list of detailed answers with images to recognize', () => {
         const answers = [{human: 'A', computer: 'B', correct: 'C', image: 'img1'}, {human: 'B', computer: 'C', correct: 'D', image: 'img2'}];
         const cb = jest.fn()
-        let component = gameOverModalWindowContent(answers, cb);
+        const component = gameOverModalWindowContent(answers, cb);
         const uls = Array.from(component.getElementsByTagName('ul'));
         const passed = uls.some( (ul) => {
             const items = Array.from(ul.getElementsByTagName('li'));
-            return items.every( (item) => {
-                const elems = Array.from(ul.querySelectorAll('*'));
-                return elems.some( (elem) => elem.tagName === 'img' );
-            })
+            return items.every( (item) => item.getElementsByTagName('img') !== null );
         });
         expect(passed).toBe(true);
     })
@@ -65,7 +62,7 @@ describe('Game Over Modal Window Content test', () => {
     it('component should contain text input, which is required', () => {
         const answers = [{human: 'A', computer: 'B', correct: 'C', image: 'img1'}, {human: 'B', computer: 'C', correct: 'D', image: 'img2'}];
         const cb = jest.fn()
-        let component = gameOverModalWindowContent(answers, cb);
+        const component = gameOverModalWindowContent(answers, cb);
         expect(component.querySelector('input[type="text"]')).not.toBeNull();
         expect(component.querySelector('input[type="text"]').required).toBe(true);
     })
@@ -73,7 +70,7 @@ describe('Game Over Modal Window Content test', () => {
     it('when button clicked, call callback function', () => {
         const answers = [{human: 'A', computer: 'B', correct: 'C', image: 'img1'}, {human: 'B', computer: 'C', correct: 'D', image: 'img2'}];
         const cb = jest.fn();
-        let component = gameOverModalWindowContent(answers, cb);
+        const component = gameOverModalWindowContent(answers, cb);
         const button = component.querySelector('input[type="submit"]');
         const textInput = component.querySelector('input[type="text"]');
         expect(textInput).not.toBeNull();
@@ -86,7 +83,7 @@ describe('Game Over Modal Window Content test', () => {
     it('when button clicked and text input is empty, do not call callback function', () => {
         const answers = [{human: 'A', computer: 'B', correct: 'C', image: 'img1'}, {human: 'B', computer: 'C', correct: 'D', image: 'img2'}];
         const cb = jest.fn();
-        let component = gameOverModalWindowContent(answers, cb);
+        const component = gameOverModalWindowContent(answers, cb);
         const button = component.querySelector('input[type="submit"]');
         expect(button).not.toBeNull();
         button.click();
