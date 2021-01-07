@@ -1,0 +1,14 @@
+.mainMenu {
+    display: grid;
+    box-sizing: border-box;
+    height: 100vh;
+    padding: 50px;  
+    grid-template:
+    "a b" 15%
+    "c d" 15%
+    "c e" 40%
+    "c f" auto
+    /30% 70%;    
+    grid-gap: 10px 20px;
+    text-align: center;
+}

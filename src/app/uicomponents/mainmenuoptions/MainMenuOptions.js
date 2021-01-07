@@ -1,7 +1,7 @@
-import MODES from "../GameModes.js"
+import {GameModes} from "../../Consts.js"
 
 const createMainMenuOptions = (optionFunction) => {
-    let options = MODES;
+    let options = GameModes;
     let mainMenuDiv, menuButton, buttonText;
 
     mainMenuDiv = document.createElement('div'); //create container for menu
@@ -20,16 +20,27 @@ const createMainMenuOptions = (optionFunction) => {
         event.target.classList.add('active'); //set current button's class to active
 
         //call callback function
-        optionFunction();
+        const modeName = event.target.id;
+        const generatedNameAndRules = optionFunction(modeName);
+
+        const mainMenuDiv = document.querySelector('.mainMenu');
+        
+        //replace name div
+        let oldNameDiv = document.querySelector('.gameModeContainer');        
+        oldNameDiv = mainMenuDiv.replaceChild(generatedNameAndRules[0], oldNameDiv);
+
+        //replace rules div
+        let oldRulesDiv = document.querySelector('#howToPlay');
+        oldRulesDiv = mainMenuDiv.replaceChild(generatedNameAndRules[1], oldRulesDiv);
     }
 
     //create buttons and append to menu container
-    for (let i = 0; i < options.length; i++) {
+    for (const property in options) {
         menuButton = document.createElement('button');
         menuButton.className = 'mainMenuButton';
         menuButton.addEventListener("click", menuButtonOnclick)
-        menuButton.id = options[i];
-        buttonText = document.createTextNode(options[i]);
+        menuButton.id = options[property];
+        buttonText = document.createTextNode(options[property]);
         menuButton.appendChild(buttonText);
         mainMenuDiv.appendChild(menuButton);
     }
