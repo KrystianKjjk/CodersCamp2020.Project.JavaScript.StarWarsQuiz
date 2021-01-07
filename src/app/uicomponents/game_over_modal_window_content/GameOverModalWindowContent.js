@@ -11,14 +11,14 @@ function gameOverModalWindowContent(answers, callback){
     if (typeof callback !== 'function') {
         throw Error(SECOND_ARG_ERROR);
     }
-    
+
     const component = document.createElement('div');
     const gameOverH2 = document.createElement('h2');
-    gameOverH2.innerText = 'Game Over';
+    gameOverH2.innerHTML = 'Game Over';
     const gameOverParagraph = document.createElement('p');
     const humanCorrect = answers.filter((answer) => answer.human === answer.correct);
     const computerCorrect = answers.filter((answer) => answer.computer === answer.correct);
-    gameOverParagraph.innerText = `The force is strong in you young Padawan! During 1 minute you have answered ${humanCorrect.length} / ${answers.length} questions. And Google quessed ${computerCorrect.length} / ${answers.length}.`;
+    gameOverParagraph.innerHTML = `The force is strong in you young Padawan! During 1 minute you have answered ${humanCorrect.length} / ${answers.length} questions. And Google quessed ${computerCorrect.length} / ${answers.length}.`;
     component.appendChild(gameOverH2);
     component.appendChild(gameOverParagraph);
     return component;
