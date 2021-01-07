@@ -1,7 +1,6 @@
 import gameOverModalWindowContent from '../src/app/uicomponents/game_over_modal_window_content/GameOverModalWindowContent.js';
+import {FIRST_ARG_ERROR, SECOND_ARG_ERROR} from '../src/app/uicomponents/game_over_modal_window_content/Errors.js';
 
-const FIRST_ARG_ERROR = 'First argument should be an array of objects. Each object should have defined following properties: human(string), computer(string), correct(string) and image(string).';
-const SECOND_ARG_ERROR = 'Second argument should be function.';
 describe('Game Over Modal Window Content test', () => {
     it('when wrong first argument throw error', () => {
         let answers = [{human: 'A', computer: 'B', correct: 'C', image: 'img1'}, {human: 2, computer: 'C', correct: 'D', image: 'img2'}]
