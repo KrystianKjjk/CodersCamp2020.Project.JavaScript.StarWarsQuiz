@@ -1,5 +1,4 @@
 import answerCorrectness from "../src/app/logic/AnswerCorrectness/AnswerCorrectness"
-import {displayAnswersComponent} from "../src/app/AnswersComponent";
 
 describe('AnswerCorrectness test', () => {
     it('check if input arguments are strings', () => {
