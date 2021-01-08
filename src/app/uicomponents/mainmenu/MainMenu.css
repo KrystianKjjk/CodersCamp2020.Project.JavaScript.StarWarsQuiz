@@ -32,12 +32,13 @@
 .image {
     display: block;
     margin-right: 30px;
-    margin-bottom: auto;   
+    margin-bottom: auto;  
+    height: 50vh; 
 }
 
 .image > img {
     max-height: 100%;
-    max-width: 100%;
+    width: auto;
 }
 
 .namerulesranking{
