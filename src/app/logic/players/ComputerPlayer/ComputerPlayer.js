@@ -1,6 +1,6 @@
 function createPlayer() {
     const player = {
-        giveAnswerCallbacks = [],
+        giveAnswerCallbacks: [],
 
         onGiveAnswerDo(callback) {
             this.giveAnswerCallbacks.push(callback);
@@ -22,3 +22,5 @@ function createPlayer() {
     
     return player;
 } 
+
+export default createPlayer;
