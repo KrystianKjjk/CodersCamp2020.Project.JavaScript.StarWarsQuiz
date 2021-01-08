@@ -1,11 +1,12 @@
 function generateTextTimerComponent() {
     const timerDiv = document.createElement('div');
+    timerDiv.className = 'text-timer';
 
     let gameTime = 61;
     let getTime = setInterval(() => {
 
         const timeObject = generateMinutesAndSeconds(gameTime);
-        timerDiv.innerHTML = 'Time left: ' + timeObject.minutes + 'm ' + timeObject.seconds + 's';
+        timerDiv.innerHTML = 'Time Left: ' + timeObject.minutes + 'm ' + timeObject.seconds + 's';
         if (gameTime === 0) { clearInterval(getTime); }
         gameTime = gameTime - 1;
     }, 1000);
