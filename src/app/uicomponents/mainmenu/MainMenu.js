@@ -12,17 +12,16 @@ async function mainMenu () {
     const mainMenuDiv = document.createElement('div');
     mainMenuDiv.className = 'mainMenu';
 
-    const images = document.createElement('div');
-    images.className = 'images';
-    images.style.gridArea= "a";
-    mainMenuDiv.appendChild(images);
+    const header = document.createElement('div');
+    header.className = 'header';
+    mainMenuDiv.appendChild(header);
 
-    const menus = document.createElement('div');
-    menus.className = 'menus';
-    menus.style.gridArea= "b";
-    mainMenuDiv.appendChild(menus);
+    const mainsection = document.createElement('div');
+    mainsection.className = 'mainsection';
+    mainMenuDiv.appendChild(mainsection);
 
-
+    const buttons = document.createElement('div');
+    buttons.className = 'buttons';
 
     //first initialize all elements with the default values
     //then callback function from main menu options will pull the new game name and rules
@@ -30,33 +29,56 @@ async function mainMenu () {
     
     //creating logo, appending and setting grid position
     const logo = logoStarWars();
-    images.appendChild(logo);
+    header.appendChild(logo);
 
     //creating main menu options bar, appending and setting grid position
     const mainMenuOptions = createMainMenuOptions(generateModeNameAndRules);
-    menus.appendChild(mainMenuOptions);
+    header.appendChild(mainMenuOptions);
 
     //creating image, appending and setting grid position
-    let randomImage = await returnImageBase64();
 
+    const image = document.createElement('div');
+    image.className = 'image';
+
+    let randomImage = await returnImageBase64();
     const imageToRecognize = peopleImageToRecognize(randomImage);
-    images.appendChild(imageToRecognize);
-    imageToRecognize.style.gridArea = "c";
+    image.appendChild(imageToRecognize);
+    mainsection.appendChild(image);
 
     //creating mode name container and rules container with default texts
+    const nameRulesRanking = document.createElement('div');
+    nameRulesRanking.className = 'namerulesranking';
+    mainsection.appendChild(nameRulesRanking);
+
     const modeNameAndRules = generateModeNameAndRules('Default');
     const nameDiv = modeNameAndRules[0];
     const rulesDiv =  modeNameAndRules[1];   
 
     //appending mode name container and positioning
-    menus.appendChild(nameDiv); 
+    nameRulesRanking.appendChild(nameDiv); 
     
     //appending rules container and positioning
-    menus.appendChild(rulesDiv);   
+    nameRulesRanking.appendChild(rulesDiv);   
 
     //creating buttons
-    const rulesRankingButton = redButton('hall of fame',switchRuleswithRanking);
-    menus.appendChild(rulesRankingButton);
+    const icon =  document.createElement('i');
+    icon.classList.add('fas');
+    icon.classList.add('fa-users');
+    const rulesRankingButton = whiteIconButton('Hall of Fame', icon ,switchRuleswithRanking);
+  
+
+    const playButton = redButton('Play the Game', function (){
+        console.log('Placeholder for play the game button');
+    })
+
+    const buttonsSpacer = document.createElement('div');
+    buttonsSpacer.style.width = '2rem';
+
+
+    buttons.appendChild(rulesRankingButton);
+    buttons.appendChild(buttonsSpacer);
+    buttons.appendChild(playButton);
+    nameRulesRanking.appendChild(buttons);
 
 
     return mainMenuDiv;    
@@ -87,10 +109,9 @@ async function returnImageBase64(){
 function switchRuleswithRanking () {
     let RulesDisplayed = document.body.querySelector('#howToPlay');
     let RankingDisplayed = document.body.querySelector('#theBestPlayers');
-    const menuDiv = document.body.querySelector('.menus');
+    let menuDiv = document.body.querySelector('.gameModeContainer').parentNode;
 
-    if(RulesDisplayed){
-        
+    if(RulesDisplayed){        
     //USERS TO BE ADDED HERE FROM THE FUNCTION RETURNING THE USERS LIST
         const data = [
         { name: 'Ania', points: '15/20' },
@@ -109,7 +130,6 @@ function switchRuleswithRanking () {
         else{
             rulesDiv = generateModeNameAndRules('Default');
         }
-        console.log(rulesDiv);
         RankingDisplayed = menuDiv.replaceChild(rulesDiv[1],RankingDisplayed);
     }
 }

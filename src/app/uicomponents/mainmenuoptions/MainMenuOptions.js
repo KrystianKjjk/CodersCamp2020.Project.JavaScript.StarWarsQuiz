@@ -23,7 +23,7 @@ const createMainMenuOptions = (optionFunction) => {
         const modeName = event.target.id;
         const generatedNameAndRules = optionFunction(modeName);
 
-        const mainMenuDiv = document.querySelector('.menus');
+        const mainMenuDiv = document.querySelector('.gameModeContainer').parentNode;
         if (mainMenuDiv) {
             //replace name div
             let oldNameDiv = document.querySelector('.gameModeContainer');
