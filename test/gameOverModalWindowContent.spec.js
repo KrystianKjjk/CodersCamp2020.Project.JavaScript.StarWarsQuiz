@@ -1,5 +1,5 @@
-import gameOverModalWindowContent from '../src/app/uicomponents/game_over_modal_window_content/GameOverModalWindowContent.js';
-import {FIRST_ARG_ERROR, SECOND_ARG_ERROR} from '../src/app/uicomponents/game_over_modal_window_content/Errors.js';
+import gameOverModalWindowContent from '../src/app/uicomponents/GameOverModalWindowContent/GameOverModalWindowContent.js';
+import {FIRST_ARG_ERROR, SECOND_ARG_ERROR} from '../src/app/uicomponents/GameOverModalWindowContent/Errors.js';
 
 describe('Game Over Modal Window Content test', () => {
     it('when wrong first argument throw error', () => {
