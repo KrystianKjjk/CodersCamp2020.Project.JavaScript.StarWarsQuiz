@@ -1,0 +1,97 @@
+.game-over-win {
+    width: 1000px;
+    box-sizing: border-box;
+    background: white;
+    text-align: center;
+    padding: 1em;
+    line-height: 1.5;
+    font-size: 20px;
+    font-weight: 500;
+}
+.game-over-win > h2 {
+    font-size: 40px;
+}
+
+.game-over-win > div {
+    position: relative;
+    text-align: left;
+    display: grid;
+    grid-template-areas: 
+                            'yoda   scrollable-list scrollable-list     scrollable-list'
+                            'input  input           input-description   input-description';
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* Scrollable list */
+.scrollable-list {
+    grid-area: scrollable-list;
+    align-items: center;
+    margin: 3rem 0;
+    padding: 0 2em;
+}
+.game-over-win ul {
+    margin-top: 1em;
+    max-height: 400px;
+    overflow-y: scroll;
+    list-style-type: none;
+}
+.game-over-win ul > li {
+    margin: 1.3em 0;
+    padding: 0 1em;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.game-over-win ul > li:first-child {
+    margin-top: 0;
+    color: #444;
+}
+.game-over-win ul > li > img {
+    border-radius: 20px;
+    box-shadow: 3px 3px 10px 10px rgba(255, 0, 0, 0.3);
+}
+.correct {
+    color: green;
+}
+.wrong {
+    color: red;
+}
+
+/* Yoda image */
+.yoda{
+    position: relative;
+    bottom: -2px;
+    grid-area: yoda;
+    height: 300px;
+    align-self: flex-end;
+    z-index: 1;
+}
+
+/* Text input */
+.game-over-win > div > input{
+    grid-area: input;
+    border-radius: 0.5rem;
+    border: #444 solid 2px;
+    padding: 0.5em 1em;
+    font-size: inherit;
+}
+
+/* Text input description */
+.game-over-win > div > p{
+    grid-area: input-description;
+}
+
+/* Submit button */
+.submit-btn {
+    margin: 2em 0;
+    padding: 0.3em 2em 0.5em;
+    border: red solid 1px;
+    border-bottom: gray solid 2px;
+    border-radius: 0.5em;
+    background-color: red;
+    color: white;
+    font-size: 30px;
+    box-shadow: 0 0 10px 10px rgba(255, 0, 0, 0.3);
+}
+.submit-btn:hover {
+    cursor: pointer;
+}

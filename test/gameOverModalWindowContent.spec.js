@@ -54,7 +54,7 @@ describe('Game Over Modal Window Content test', () => {
         const uls = Array.from(component.getElementsByTagName('ul'));
         const passed = uls.some( (ul) => {
             const items = Array.from(ul.getElementsByTagName('li'));
-            return items.every( (item) => item.getElementsByTagName('img').length === 1 );
+            return items.filter( (item) => item.getElementsByTagName('img').length === 1 ).length >= items.length - 1;
         });
         expect(passed).toBe(true);
     })
@@ -71,7 +71,7 @@ describe('Game Over Modal Window Content test', () => {
         const answers = [{human: 'A', computer: 'B', correct: 'C', image: 'img1'}, {human: 'B', computer: 'C', correct: 'D', image: 'img2'}];
         const cb = jest.fn();
         const component = gameOverModalWindowContent(answers, cb);
-        const button = component.querySelector('input[type="submit"]');
+        const button = component.querySelector('.submit-btn');
         const textInput = component.querySelector('input[type="text"]');
         expect(textInput).not.toBeNull();
         textInput.value = "Player";
@@ -84,7 +84,7 @@ describe('Game Over Modal Window Content test', () => {
         const answers = [{human: 'A', computer: 'B', correct: 'C', image: 'img1'}, {human: 'B', computer: 'C', correct: 'D', image: 'img2'}];
         const cb = jest.fn();
         const component = gameOverModalWindowContent(answers, cb);
-        const button = component.querySelector('input[type="submit"]');
+        const button = component.querySelector('.submit-btn');
         expect(button).not.toBeNull();
         button.click();
         expect(cb).not.toHaveBeenCalled();
