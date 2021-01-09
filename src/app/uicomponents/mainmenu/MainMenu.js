@@ -1,5 +1,5 @@
 import createMainMenuOptions from "../MainMenuOptions/MainMenuOptions.js"
-import logoStarWars from "../../logoStarWars.js"
+import logoStarWars from "../../LogoStarWars.js"
 import peopleImageToRecognize from "../../PeopleImageToRecognize.js"
 import generateModeNameAndRules from './generateModeNameAndRules.js'
 import {StartMode} from '../../Consts.js'
