@@ -1,4 +1,4 @@
-import createGameModeName from '../gamemodename/GameModeName.js'
+import createGameModeName from '../GameModeName/GameModeName.js'
 import displayText from '../../GameRules.js'
 import {GameModes} from '../../Consts.js'
 import RULESTEXTS from '../../ConstRulesTexts.js'
