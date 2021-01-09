@@ -1,3 +1,5 @@
+import answerCorrectness from '../AnswerCorrectness/AnswerCorrectness';
+
 class HumanPlayer {
   constructor(name) {
     this._name = name;
@@ -14,18 +16,26 @@ class HumanPlayer {
     };
   }
 
-  askQuestion(question, callback) {
-    this._askedQuestions++;
-    this._activeQuestion = question;
-    callback();
+  get answersHistory() {
+    return this._answers;
   }
 
-  answerQuestion(answer, callback) {
+  askQuestion(question, callbacks) {
+    if (typeof question !== 'object' || question === null) throw Error('First argument must be an object');
+    if (!Array.isArray(callbacks)) throw Error('Second argument must be an array');
+    this._askedQuestions++;
+    this._activeQuestion = question;
+    callbacks.forEach((callback) => {callback()});
+  }
+
+  answerQuestion(answer, callbacks) {
+    if (typeof answer !== 'string') throw Error('First argument must be a string');
+    if (!Array.isArray(callbacks)) throw Error('Second argument must be an array');
     this._answers.push(answer);
-    if (answer.name === this._activeQuestion.rightAnswer.name) {
+    if (answerCorrectness(this._activeQuestion.rightAnswer, answer)) {
       this._points++;
     }
-    callback();
+    callbacks.forEach((callback) => {callback(answer)});
   }
 }
 
