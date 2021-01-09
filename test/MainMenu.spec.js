@@ -36,27 +36,27 @@ describe('Main Menu Component content check', () => {
 })
 
 
-
-describe('Main Menu Component functionalities check', () => {
-    it('check if main menu container was created', () => {
-        expect(document.body.querySelector(".mainMenu")).toBeTruthy();
-    })
-    it('check if logo was created', () => {
-        expect(document.body.querySelector("#menu-logo")).toBeTruthy();
-    })
-    it('check if mode selector was created', () => {
-        expect(document.body.querySelector(".modeSelectorContainer")).toBeTruthy();
-    })
-    it('check if sample image was created', () => {
-        expect(document.body.querySelector(".image")).toBeTruthy();
-    })
-    it('check if sample image was created', () => {
-        expect(document.body.querySelector(".image")).toBeTruthy();
-    })
-    it('check if sample image was created', () => {
-        expect(document.body.querySelector(".image")).toBeTruthy();
-    })
-    it('check if sample image was created', () => {
-        expect(document.body.querySelector(".image")).toBeTruthy();
-    })
-})  
+// functionalities tests to be written here
+// describe('Main Menu Component functionalities check', () => {
+//     it('check if main menu container was created', () => {
+//         expect(document.body.querySelector(".mainMenu")).toBeTruthy();
+//     })
+//     it('check if logo was created', () => {
+//         expect(document.body.querySelector("#menu-logo")).toBeTruthy();
+//     })
+//     it('check if mode selector was created', () => {
+//         expect(document.body.querySelector(".modeSelectorContainer")).toBeTruthy();
+//     })
+//     it('check if sample image was created', () => {
+//         expect(document.body.querySelector(".image")).toBeTruthy();
+//     })
+//     it('check if sample image was created', () => {
+//         expect(document.body.querySelector(".image")).toBeTruthy();
+//     })
+//     it('check if sample image was created', () => {
+//         expect(document.body.querySelector(".image")).toBeTruthy();
+//     })
+//     it('check if sample image was created', () => {
+//         expect(document.body.querySelector(".image")).toBeTruthy();
+//     })
+// })  
