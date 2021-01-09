@@ -1,12 +1,15 @@
 import MODES from '../../uicomponents/GameModes.js';
 
-/* Function takes object constructed like below:
+/* ---------addUserRankInLocalStorage-------------
+  Function takes object:
+
   obj = {
     gameMode: string,
     userName: string,
     numberOfCorrectAnswers: number,
     numberOfTotalAnswers: number,
-}*/
+   }
+   --------------------------------------------- */
 
 function addUserRankInLocalStorage(obj) {
   //checks if passed arguments are correct
@@ -16,11 +19,7 @@ function addUserRankInLocalStorage(obj) {
       || typeof obj.numberOfTotalAnswers !== 'number' ) throw Error('Incorrect type of arguments.');
 
   //check if the mode of the game is correct
-  let isCorrectMode = false;
-  MODES.forEach(mode => {
-    if(obj.gameMode === mode) isCorrectMode = true;
-  });
-  if(!isCorrectMode) throw Error('Incorrect game mode.');
+  if( !MODES.includes(obj.gameMode) ) throw Error('Incorrect game mode.');
 
   //if gameMode doesn't exist in the localstorage create it
   let arrayOfUsersAndScores = JSON.parse(localStorage.getItem(obj.gameMode));
@@ -48,27 +47,27 @@ function addUserRankInLocalStorage(obj) {
   }
 }
 
-/*  Function returns empty object if in the localstorage doesn't exist selected gameMode
-    Otherwise function returns array of objects like below:
+/* --------------getUserRankInLocalStorage-------------------------
+    Function returns an empty object
+    if in the localstorage doesn't exist selected gameMode.
+    Otherwise function returns array of objects:
+
     obj = {
       userName: string,
       numberOfCorrectAnswers: number,
       numberOfTotalAnswers: number
     }
-    */
+    -------------------------------------------------------------*/
 
 function getUserRankInLocalStorage(gameMode) {
   //check if the mode of the game is correct
-  let isCorrectMode = false;
-  MODES.forEach(mode => {
-    if(gameMode === mode) isCorrectMode = true;
-  });
-  if(!isCorrectMode) throw Error('Incorrect game mode.');
+  if( !MODES.includes(gameMode) ) throw Error('Incorrect game mode.');
 
   let arrayOfUsersAndScores = JSON.parse(localStorage.getItem(gameMode));
 
   return arrayOfUsersAndScores === null ? {} : arrayOfUsersAndScores;
 }
+
 
 function CreateUserAndScoreObject(userName, numberOfCorrectAnswers, numberOfTotalAnswers) {
   this.userName = userName;
@@ -76,4 +75,4 @@ function CreateUserAndScoreObject(userName, numberOfCorrectAnswers, numberOfTota
   this.numberOfTotalAnswers = numberOfTotalAnswers;
 }
 
-export {addUserRankInLocalStorage, getUserRankInLocalStorage}
+export { addUserRankInLocalStorage, getUserRankInLocalStorage }
