@@ -67,12 +67,7 @@ function getUserRankInLocalStorage(gameMode) {
 
   let arrayOfUsersAndScores = JSON.parse(localStorage.getItem(gameMode));
 
-  if(arrayOfUsersAndScores === null) {
-    return {};
-  }
-  else {
-    return arrayOfUsersAndScores;
-  }
+  return arrayOfUsersAndScores === null ? {} : arrayOfUsersAndScores;
 }
 
 function CreateUserAndScoreObject(userName, numberOfCorrectAnswers, numberOfTotalAnswers) {
