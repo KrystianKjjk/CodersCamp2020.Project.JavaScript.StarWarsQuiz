@@ -27,10 +27,12 @@ const generateModeNameAndRules = (modeName) => {
     const nameModeDiv = createGameModeName(modeName);
     const rulesDiv = displayText(ruleText);
 
-    nameModeDiv.style.gridArea = "d";
-    rulesDiv.style.gridArea = "e";
+    const modeNameAndRules = {
+        nameModeDiv: nameModeDiv,
+        rulesDiv: rulesDiv
+    };
 
-    return [nameModeDiv, rulesDiv];
+    return modeNameAndRules;
 }
 
 export default generateModeNameAndRules;

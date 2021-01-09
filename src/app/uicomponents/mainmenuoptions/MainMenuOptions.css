@@ -1,4 +1,4 @@
-.mainMenuContainer {
+.modeSelectorContainer {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -9,7 +9,7 @@
         0 4px 4px rgba(0, 0, 0, .25),
         4px 4px 40px rgba(255, 0, 0, .9);
     margin: 50px 0;
-   width: 60vw;
+    width: 60vw;
 }
 
 .mainMenuButton {

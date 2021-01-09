@@ -10,7 +10,7 @@ const button2 = document.body.querySelectorAll("button")[2];
 
 describe('Menu Options Selector test', () => {
     it('check if menu container was created', () => {
-        expect(document.body.querySelector(".mainMenuContainer")).toBeTruthy();
+        expect(document.body.querySelector(".modeSelectorContainer")).toBeTruthy();
     })
     it('check if three buttons were created', () => {
         expect(document.body.querySelectorAll("button").length).toBe(3);

@@ -5,57 +5,57 @@
 .mainMenu {
     display: flex;
     flex-direction: column;
-    height: 100vh;    
+    height: 100vh;
     padding: 0 5%;
 }
 
-.header{
-    display:flex;
+.header {
+    display: flex;
     flex-direction: row;
-    align-items: center;  
+    align-items: center;
     justify-content: space-between;
-    width: 100%;  
+    width: 100%;
     height: 20vh;
 }
 
-.header > div:first-child{
+.header>div:first-child {
     height: 100%;
 }
 
-.mainsection{
-    display:flex;
+.mainsection {
+    display: flex;
     flex-direction: row;
-    align-items: center;   
+    align-items: center;
     width: 100%;
 }
 
 .image {
     display: block;
     margin-right: 30px;
-    margin-bottom: auto;  
-    height: 50vh; 
+    margin-bottom: auto;
+    height: 50vh;
 }
 
-.image > img {
+.image>img {
     max-height: 100%;
     width: auto;
 }
 
-.namerulesranking{
-    display:flex;
+.namerulesranking {
+    display: flex;
     flex-direction: column;
     height: 60vh;
     max-width: 60vw;
-    width:100%;
+    width: 100%;
     margin-left: auto;
 }
 
-.namerulesranking >div:nth-child(2){
+.namerulesranking>div:nth-child(2) {
     height: 100%;
 }
 
-.buttons{
-    display:flex;
+.buttons {
+    display: flex;
     flex-direction: row;
     width: 100%;
     height: 10vh;
@@ -63,9 +63,9 @@
     align-self: flex-end;
 }
 
-#howToPlay, #theBestPlayers{
+#howToPlay,
+#theBestPlayers {
     background-color: white;
     margin: 10px 0;
     border-radius: 16px;
 }
-

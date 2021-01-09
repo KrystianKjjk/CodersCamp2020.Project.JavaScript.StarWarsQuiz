@@ -5,7 +5,7 @@ const createMainMenuOptions = (optionFunction) => {
     let mainMenuDiv, menuButton, buttonText;
 
     mainMenuDiv = document.createElement('div'); //create container for menu
-    mainMenuDiv.className = 'mainMenuContainer';
+    mainMenuDiv.className = 'modeSelectorContainer';
 
     //nested button onclick function for changing the active styling
     const menuButtonOnclick = (event) => {
@@ -23,20 +23,19 @@ const createMainMenuOptions = (optionFunction) => {
         const modeName = event.target.id;
         const generatedNameAndRules = optionFunction(modeName);
         let mainMenuDiv;
-        if (document.querySelector('.gameModeContainer')){
+        if (document.querySelector('.gameModeContainer')) {
             mainMenuDiv = document.querySelector('.gameModeContainer').parentNode;
         }
         if (mainMenuDiv) {
             //replace name div
             let oldNameDiv = document.querySelector('.gameModeContainer');
-            oldNameDiv = mainMenuDiv.replaceChild(generatedNameAndRules[0], oldNameDiv);
+            oldNameDiv = mainMenuDiv.replaceChild(generatedNameAndRules.nameModeDiv, oldNameDiv);
 
             //replace rules div
             let oldRulesDiv = document.querySelector('#howToPlay');
-            oldRulesDiv = mainMenuDiv.replaceChild(generatedNameAndRules[1], oldRulesDiv);
+            oldRulesDiv = mainMenuDiv.replaceChild(generatedNameAndRules.rulesDiv, oldRulesDiv);
         }
     }
-
 
     //create buttons and append to menu container
     for (const property in options) {
