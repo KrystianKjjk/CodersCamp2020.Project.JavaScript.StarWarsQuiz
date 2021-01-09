@@ -1,9 +1,9 @@
-@import '../src/app/uicomponents/gamemodename/GameModeName.css';
-@import '../src/app/uicomponents/mainmenuoptions/MainMenuOptions.css';
+@import '../src/app/uicomponents/GameModeName/GameModeName.css';
+@import '../src/app/uicomponents/MainMenuOptions/MainMenuOptions.css';
 @import '../styles/RedButton.css';
 @import '../styles/WhiteIconButton.css';
 @import '../styles/LogoStarWars.css';
-@import '../src/app/uicomponents/mainmenu/MainMenu.css';
+@import '../src/app/uicomponents/MainMenu/MainMenu.css';
 @import '../styles/PeopleImageToRecognize.css';
 
 
