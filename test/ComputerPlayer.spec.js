@@ -23,4 +23,15 @@ describe('Computer Player function tests', () => {
         const answer = computer.answerQuestion(question);
         expect(mockFunction).toHaveBeenCalledWith(answer, question);
     })
+
+    it('accepts one callback and array of callbacks', () => {
+        const computer = createPlayer();
+        const firstMockFunction = jest.fn();
+        const secondMockFunction = jest.fn();
+        const thirdMockFunction = jest.fn();
+        computer.onGiveAnswerDo(firstMockFunction);
+        expect(computer.giveAnswerCallbacks.length).toBe(1);
+        computer.onGiveAnswerDo([secondMockFunction, thirdMockFunction]);
+        expect(computer.giveAnswerCallbacks.length).toBe(3);
+    })
 });

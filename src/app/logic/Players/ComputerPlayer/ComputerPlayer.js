@@ -2,8 +2,9 @@ function createPlayer() {
     const player = {
         giveAnswerCallbacks: [],
 
-        onGiveAnswerDo(callback) {
-            this.giveAnswerCallbacks.push(callback);
+        onGiveAnswerDo(callbacks) {
+            const callbacksArray = Array.isArray(callbacks) ? callbacks : [callbacks];
+            this.giveAnswerCallbacks.push(...callbacksArray);
         },
 
         answerQuestion(question) {
