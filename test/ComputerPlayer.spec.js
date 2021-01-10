@@ -32,6 +32,9 @@ describe('Computer Player function tests', () => {
         expect(computer._giveAnswerCallbacks.length).toBe(1);
         computer.onGiveAnswerDo([secondMockFunction, thirdMockFunction]);
         expect(computer._giveAnswerCallbacks.length).toBe(3);
+        expect(() => computer.onGiveAnswerDo('Some string')).toThrowError('Given argument is neither function nor array of functions');
+        expect(() => computer.onGiveAnswerDo(123)).toThrowError('Given argument is neither function nor array of functions');
+        expect(() => computer.onGiveAnswerDo([1,2,3])).toThrowError('Given argument is neither function nor array of functions');
     })
 
     it('keeps track of the points', () => {

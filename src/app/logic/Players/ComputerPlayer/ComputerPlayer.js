@@ -21,6 +21,9 @@ function createPlayer() {
 
         onGiveAnswerDo(callbacks) {
             const callbacksArray = Array.isArray(callbacks) ? callbacks : [callbacks];
+            if (callbacksArray.some(callback => typeof callback !== 'function')) {
+                throw Error('Given argument is neither function nor array of functions');
+            }
             this._giveAnswerCallbacks.push(...callbacksArray);
         },
 
