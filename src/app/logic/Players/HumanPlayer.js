@@ -25,7 +25,7 @@ class HumanPlayer {
     if (!Array.isArray(callbacks)) throw Error('Second argument must be an array');
     this._askedQuestions++;
     this._activeQuestion = question;
-    callbacks.forEach((callback) => {callback()});
+    callbacks.forEach((callback) => {callback(question)});
   }
 
   answerQuestion(answer, callbacks) {
@@ -35,7 +35,7 @@ class HumanPlayer {
     if (answerCorrectness(this._activeQuestion.rightAnswer, answer)) {
       this._points++;
     }
-    callbacks.forEach((callback) => {callback(answer)});
+    callbacks.forEach((callback) => {callback(this._activeQuestion, answer)});
   }
 }
 
