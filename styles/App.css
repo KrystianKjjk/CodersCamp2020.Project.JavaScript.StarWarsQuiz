@@ -3,7 +3,7 @@
 @import '../src/app/uicomponents/RedButton/RedButton.css';
 @import '../src/app/uicomponents/WhiteIconButton/WhiteIconButton.css';
 @import '../src/app/uicomponents/LogoStarWars/LogoStarWars.css';
-
+@import '../src/app/uicomponents/TextTimer/TextTimer.css';
 
 body {
     font-family: 'Montserrat', sans-serif;
@@ -66,10 +66,10 @@ p {
     font-size: 25px;
 }
 
-#theBestPlayers > .header {
+#theBestPlayers>.header {
     font-weight: 700;
 }
 
-#theBestPlayers > p {
+#theBestPlayers>p {
     margin: 5px;
 }

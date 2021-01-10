@@ -1,4 +1,4 @@
-import modalWindow from '../src/app/ModalWindow.js';
+import modalWindow from '../src/app/uicomponents/ModalWindow/ModalWindow.js';
 describe('Modal Window test', () => {
     it('wrong 1st argument', () => {
         const component = 'component';
