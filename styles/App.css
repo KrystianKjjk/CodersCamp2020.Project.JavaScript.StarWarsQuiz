@@ -4,6 +4,7 @@
 @import '../styles/WhiteIconButton.css';
 @import '../styles/LogoStarWars.css';
 @import '../src/app/uicomponents/TextTimer/TextTimer.css';
+@import '../src/app/uicomponents/LightsaberTimer/LightsaberTimer.css';
 body {
     font-family: 'Montserrat', sans-serif;
     background-image: url(../static/assets/ui/QuizBackground.png);
@@ -13,6 +14,50 @@ body {
     min-height: 100vh;
     margin: 0px;
 }
+
+
+/*----------------lightsaber--------------------------*/
+
+.lightsaber {
+    width: 100%;
+}
+
+.handle {
+    position: absolute;
+    /* width: 299px; */
+    width: 16%;
+    height: 49px;
+    left: 8px;
+}
+
+
+/* .handle img {
+    width: 100%;
+    height: auto;
+} */
+
+.saber {
+    position: absolute;
+    width: 84%;
+    height: 26px;
+    left: 282px;
+    top: 10px;
+    background: #BCBCBC;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+}
+
+.progress-bar {
+    position: relative;
+    width: 100%;
+    height: 26px;
+    background: #FFFFFF;
+    box-shadow: 10px -5px 15px #FF0000, 10px 5px 15px #FF0000, inset 0px 5px 4px rgba(255, 0, 0, 0.25);
+    border-radius: 8px;
+}
+
+
+/*----------------------------------------------------*/
 
 #howToPlay {
     font-size: 20px;
