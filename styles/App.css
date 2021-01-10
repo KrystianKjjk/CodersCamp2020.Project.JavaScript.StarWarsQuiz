@@ -3,8 +3,7 @@
 @import '../styles/RedButton.css';
 @import '../styles/WhiteIconButton.css';
 @import '../styles/LogoStarWars.css';
-
-
+@import '../src/app/uicomponents/TextTimer/TextTimer.css';
 body {
     font-family: 'Montserrat', sans-serif;
     background-image: url(../static/assets/ui/QuizBackground.png);
@@ -66,10 +65,10 @@ p {
     font-size: 25px;
 }
 
-#theBestPlayers > .header {
+#theBestPlayers>.header {
     font-weight: 700;
 }
 
-#theBestPlayers > p {
+#theBestPlayers>p {
     margin: 5px;
 }
