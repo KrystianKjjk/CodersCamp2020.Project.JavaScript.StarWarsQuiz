@@ -1,4 +1,7 @@
-import MODES from '../../uicomponents/GameModes.js';
+import {GameModes} from '../../Consts.js';
+//FS change - modify object from Justynas function to be array of properties values
+const MODES = Object.values(GameModes);
+
 
 /* ---------addUserRankInLocalStorage-------------
   Function takes object:
@@ -12,6 +15,7 @@ import MODES from '../../uicomponents/GameModes.js';
    --------------------------------------------- */
 
 function addUserRankInLocalStorage(obj) {
+  
   //checks if passed arguments are correct
   if( typeof obj.gameMode !== 'string'
       || typeof obj.userName !== 'string'
