@@ -4,7 +4,7 @@
 @import '../styles/WhiteIconButton.css';
 @import '../styles/LogoStarWars.css';
 @import '../src/app/uicomponents/MainMenu/MainMenu.css';
-@import '../styles/PeopleImageToRecognize.css';
+@import '../../src/app/uicomponents/PeopleImageToRecognize/PeopleImageToRecognize.css';
 @import '../src/app/uicomponents/TextTimer/TextTimer.css';
 
 body {
