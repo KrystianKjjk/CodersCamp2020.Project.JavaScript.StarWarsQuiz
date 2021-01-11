@@ -1,0 +1,23 @@
+#theBestPlayers {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.rankingTitle {
+    display: inline;
+    grid-column: span 3;
+    padding: 0 15px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+#theBestPlayers > .header {
+    font-weight: 700;
+}
+
+#theBestPlayers > p {
+    margin: 5px;
+}
