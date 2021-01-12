@@ -1,8 +1,8 @@
 @import '../src/app/uicomponents/gamemodename/GameModeName.css';
 @import '../src/app/uicomponents/mainmenuoptions/MainMenuOptions.css';
-@import '../styles/RedButton.css';
-@import '../styles/WhiteIconButton.css';
-@import '../styles/LogoStarWars.css';
+@import '../src/app/uicomponents/RedButton/RedButton.css';
+@import '../src/app/uicomponents/WhiteIconButton/WhiteIconButton.css';
+@import '../src/app/uicomponents/LogoStarWars/LogoStarWars.css';
 @import '../src/app/uicomponents/TextTimer/TextTimer.css';
 @import './Ranking.css';
 @import './GameRules.css';
