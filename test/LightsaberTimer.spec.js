@@ -34,9 +34,4 @@ describe('Lightsaber timer', () => {
 
     })
 
-
-
-
-
-
 })
