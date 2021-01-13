@@ -6,9 +6,9 @@
 @import '../src/app/uicomponents/WhiteIconButton/WhiteIconButton.css';
 @import '../src/app/uicomponents/LogoStarWars/LogoStarWars.css';
 @import '../src/app/uicomponents/TextTimer/TextTimer.css';
+@import '../src/app/uicomponents/LightsaberTimer/LightsaberTimer.css';
 @import './Ranking.css';
 @import './GameRules.css';
-
 body {
     font-family: 'Montserrat', sans-serif;
     background-image: url(../static/assets/ui/QuizBackground.png);
