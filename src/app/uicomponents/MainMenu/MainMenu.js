@@ -1,10 +1,10 @@
 import createMainMenuOptions from "../MainMenuOptions/MainMenuOptions.js"
-import logoStarWars from "../../LogoStarWars.js"
+import logoStarWars from "../LogoStarWars/LogoStarWars.js"
 import peopleImageToRecognize from "../../uicomponents/PeopleImageToRecognize/PeopleImageToRecognize.js"
 import generateModeNameAndRules from './GenerateModeNameAndRules.js'
 import {StartMode} from '../../Consts.js'
-import redButton from '../../RedButton.js'
-import whiteIconButton from '../../WhiteIconButton.js'
+import redButton from '../RedButton/RedButton.js'
+import whiteIconButton from '../WhiteIconButton/WhiteIconButton.js'
 import displayRanking from '../../Ranking.js'
 import {returnImageBase64} from './GetSampleImage.js'
 
