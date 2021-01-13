@@ -1,5 +1,7 @@
-@import '../src/app/uicomponents/gamemodename/GameModeName.css';
-@import '../src/app/uicomponents/mainmenuoptions/MainMenuOptions.css';
+@import '../src/app/uicomponents/GameModeName/GameModeName.css';
+@import '../src/app/uicomponents/MainMenuOptions/MainMenuOptions.css';
+@import '../src/app/uicomponents/MainMenu/MainMenu.css';
+@import '../src/app/uicomponents/PeopleImageToRecognize/PeopleImageToRecognize.css';
 @import '../src/app/uicomponents/RedButton/RedButton.css';
 @import '../src/app/uicomponents/WhiteIconButton/WhiteIconButton.css';
 @import '../src/app/uicomponents/LogoStarWars/LogoStarWars.css';

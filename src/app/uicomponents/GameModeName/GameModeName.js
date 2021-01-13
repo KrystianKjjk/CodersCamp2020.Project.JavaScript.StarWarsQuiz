@@ -1,13 +1,13 @@
-import MODES from "../GameModes.js"
+import {GameModes} from '../../Consts.js'
 
 const createGameModeName = (modeName) => {
-    const people = MODES[0];
-    const vehicles = MODES[1];
-    const starships = MODES[2];
+    const people = GameModes.PEOPLE;
+    const vehicles = GameModes.VEHICLES;
+    const starships = GameModes.STARSHIPS;
+    const start = 'Default';
 
     const gameModeNameDiv = document.createElement('div');
     gameModeNameDiv.className = 'gameModeContainer';
-
     switch (modeName) {
         case people:
             gameModeNameDiv.textContent = 'Who is this character?';
@@ -18,11 +18,13 @@ const createGameModeName = (modeName) => {
         case starships:
             gameModeNameDiv.textContent = 'Do you recognize this starship?';
             break;
+        case start:
+            gameModeNameDiv.textContent = 'Select game mode';
+            break;
         default:
-            gameModeNameDiv.textContent = 'Unknown game mode';
-            throw 'Mode name argument was not passed to the createGameModeName component or the argument was invalid'
+            throw 'Mode name argument was not passed to the createGameModeName component or the argument was invalid';
     }
-    return gameModeNameDiv;    
+    return gameModeNameDiv;
 }
 
 export default createGameModeName;

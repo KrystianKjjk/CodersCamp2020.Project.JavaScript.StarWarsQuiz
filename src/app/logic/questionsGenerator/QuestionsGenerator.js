@@ -1,8 +1,7 @@
-import { async } from "regenerator-runtime";
-import { GameModes } from "../../Consts";
-import { getPersonById, getPersonImageBlobById } from "../../apiconnection/PeopleClient";
-import { getStarshipById, getStarshipImageBlobById } from "../../apiconnection/StarshipsClient";
-import { getVehicleById, getVehicleImageBlobById } from "../../apiconnection/VehiclesClient";
+import { GameModes } from "../../Consts.js";
+import { getPersonById, getPersonImageBlobById } from "../../apiconnection/PeopleClient.js";
+import { getStarshipById, getStarshipImageBlobById } from "../../apiconnection/StarshipsClient.js";
+import { getVehicleById, getVehicleImageBlobById } from "../../apiconnection/VehiclesClient.js";
 
 
 async function generateQuestions(gameMode) {
@@ -104,3 +103,5 @@ function drawCorrectAnswer(questionsIds, questionsNames) {
     const correctAnswerId = questionsIds[correctAnswerIdIndex];
     return { correctAnswer, correctAnswerId };
 }
+
+export {convertBlobToBase64}
