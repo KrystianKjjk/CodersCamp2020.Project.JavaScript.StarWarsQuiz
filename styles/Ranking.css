@@ -3,6 +3,8 @@
     grid-template-columns: 1fr 4fr 1fr;
     font-weight: 500;
     font-size: 20px;
+    padding: 1em;
+    box-shadow: 0 4px 4px rgba(0,0,0,.25), 4px 4px 40px rgba(255,0,0,.9), inset 4px 5px 4px rgba(0,0,0,.5);    
 }
 
 .rankingTitle {
@@ -11,7 +13,7 @@
     padding: 0 15px;
     text-align: center;
     font-weight: 600;
-    font-size: 25px;
+    font-size: 2rem;
 }
 
 #theBestPlayers > .header {

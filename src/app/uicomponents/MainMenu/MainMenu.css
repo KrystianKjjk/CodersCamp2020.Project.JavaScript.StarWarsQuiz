@@ -9,7 +9,7 @@
     padding: 0 5%;
 }
 
-.header {
+.mainMenu > .header {
     display: flex;
     flex-direction: row;
     align-items: center;
