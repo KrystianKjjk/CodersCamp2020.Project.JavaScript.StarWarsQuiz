@@ -1,10 +1,10 @@
 @import '../src/app/uicomponents/GameModeName/GameModeName.css';
 @import '../src/app/uicomponents/MainMenuOptions/MainMenuOptions.css';
-@import '../styles/RedButton.css';
-@import '../styles/WhiteIconButton.css';
-@import '../styles/LogoStarWars.css';
 @import '../src/app/uicomponents/MainMenu/MainMenu.css';
 @import '../src/app/uicomponents/PeopleImageToRecognize/PeopleImageToRecognize.css';
+@import '../src/app/uicomponents/RedButton/RedButton.css';
+@import '../src/app/uicomponents/WhiteIconButton/WhiteIconButton.css';
+@import '../src/app/uicomponents/LogoStarWars/LogoStarWars.css';
 @import '../src/app/uicomponents/TextTimer/TextTimer.css';
 @import './Ranking.css';
 @import './GameRules.css';

@@ -1,4 +1,4 @@
-import whiteIconButton from "../src/app/WhiteIconButton";
+import whiteIconButton from "../src/app/uicomponents/WhiteIconButton/WhiteIconButton";
 
 describe('White Icon Button tests', () => {
     it('returns HTMLButtonElement with two children', () => {
