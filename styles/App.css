@@ -8,6 +8,7 @@
 @import '../src/app/uicomponents/TextTimer/TextTimer.css';
 @import './Ranking.css';
 @import './GameRules.css';
+@import '../src/app/uicomponents/ModalWindow/ModalWindow.css';
 
 body {
     font-family: 'Montserrat', sans-serif;

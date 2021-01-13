@@ -53,6 +53,8 @@ async function mainMenu() {
     const icon = document.createElement('i');
     icon.classList.add('fas', 'fa-users');
     const rulesRankingButton = whiteIconButton('Hall of Fame', icon, switchRuleswithRanking);
+    
+    //Play the Game button
     const playButton = redButton('Play the Game', function () {
         window.alert('Placeholder for play the game button');
     })

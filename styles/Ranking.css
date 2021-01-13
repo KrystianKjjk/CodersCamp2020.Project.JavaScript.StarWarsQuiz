@@ -10,7 +10,7 @@
 .rankingTitle {
     display: inline;
     grid-column: span 3;
-    padding: 0 15px;
+    margin: 1em;
     text-align: center;
     font-weight: 600;
     font-size: 2rem;

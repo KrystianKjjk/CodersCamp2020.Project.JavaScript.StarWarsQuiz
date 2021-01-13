@@ -5,6 +5,7 @@
 }
 
 .headerDiv {
+    margin: 1em;
     font-size: 2rem;
     display: flex;
     flex-direction: row;
