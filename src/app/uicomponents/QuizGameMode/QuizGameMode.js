@@ -2,6 +2,7 @@ import {GameModes} from '../../Consts.js'
 import modalWindow from '../ModalWindow/ModalWindow.js';
 import gameOverModalWindowContent from '../GameOverModalWindowContent/GameOverModalWindowContent.js';
 import {generateTextTimerComponent} from '../TextTimer/TextTimer.js';
+import {generateLightsaberTimerComponent} from '../LightsaberTimer/LightsaberTimer.js'
 
 async function quizGameMode(gameTime) {
 
@@ -31,10 +32,9 @@ async function quizGameMode(gameTime) {
         saberAndTimerContainer.className = 'saberAndTimerContainer';
         document.body.querySelector('.mainMenu').appendChild(saberAndTimerContainer);
 
-
         //display a lightsaber
-        
-
+        const saberDiv = generateLightsaberTimerComponent();
+        saberAndTimerContainer.appendChild(saberDiv);      
 
         //display a text timer below
         const timerDiv = generateTextTimerComponent();
@@ -47,10 +47,6 @@ async function quizGameMode(gameTime) {
         // now append the modal window to the page
         document.body.appendChild(modalWindowContainer);
     }
-
-    //generate modal content
-
-    //generate modal and inject it
 }
 
 function removeModalWindow () {
@@ -65,6 +61,7 @@ function generateModalWindow(){
     gameOverModalWindowContent()
 }
 
+//dummy function to be replaced with Justyna's one
 async function duummy(mode){
     return dummy;
 }

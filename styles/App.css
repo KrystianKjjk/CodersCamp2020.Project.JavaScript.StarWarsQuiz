@@ -10,6 +10,7 @@
 @import './Ranking.css';
 @import './GameRules.css';
 @import '../src/app/uicomponents/ModalWindow/ModalWindow.css';
+@import '../src/app/uicomponents/QuizGameMode/QuizGameMode.css';
 
 body {
     font-family: 'Montserrat', sans-serif;
