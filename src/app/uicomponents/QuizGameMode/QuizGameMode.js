@@ -1,43 +1,56 @@
 import {GameModes} from '../../Consts.js'
 import modalWindow from '../ModalWindow/ModalWindow.js';
 import gameOverModalWindowContent from '../GameOverModalWindowContent/GameOverModalWindowContent.js';
+import {generateTextTimerComponent} from '../TextTimer/TextTimer.js';
 
 async function quizGameMode(gameTime) {
+
     //create a questions div
     const questionsDiv = document.createElement('div');
-    let selectedMode = document.querySelector(".active");
 
-    //generate a questions div depending on the currently selected mode and inject it
-    switch (selectedMode) {
-        case GameModes.PEOPLE:
-            break;
-        case GameModes.PEOPLE:
-            break;            
-        case GameModes.PEOPLE:
-            break;
-        default:
-            //display a modal saying that the user should select a mode
-            const modeNotSelectedMessage = document.createElement('div');
-            modeNotSelectedMessage.innerText= "Please select the mode first to start the game";
-            modeNotSelectedMessage.style.padding = "30px";            
-            modeNotSelectedMessage.style.color = "white";    
-            modeNotSelectedMessage.style.backgroundColor = "black";  
-            document.body.appendChild(modalWindow(modeNotSelectedMessage, removeModalWindow));          
-        }
-
-    
+    //define the selected mode - by checking the button's innerHTML
+    //if no button is selected - display modal
+    let selectedMode = 0;
+    try {
+        selectedMode = document.querySelector(".active").innerHTML;
+    } catch (error) {
+        const modeNotSelectedMessage = document.createElement('div');
+        modeNotSelectedMessage.innerText = "Please select the mode first to start the game";
+        modeNotSelectedMessage.style.padding = "30px";
+        modeNotSelectedMessage.style.color = "white";
+        modeNotSelectedMessage.style.backgroundColor = "black";
+        document.body.appendChild(modalWindow(modeNotSelectedMessage, removeModalWindow));
+    }
 
 
-    //display a lightsaber
+    //if any mode was selected then run the game, otherwise do nothing
+    if (selectedMode != 0) {
+
+        //create a container for lightsaber and timer
+        const saberAndTimerContainer = document.createElement('div');
+        saberAndTimerContainer.className = 'saberAndTimerContainer';
+        document.body.querySelector('.mainMenu').appendChild(saberAndTimerContainer);
 
 
-    //display a text timer below
+        //display a lightsaber
+        
 
 
-    //after the game time ends - display a modal window that clicked 
-    let interval = async() =>{
-        await setTimeout()
-    } 
+        //display a text timer below
+        const timerDiv = generateTextTimerComponent();
+        saberAndTimerContainer.appendChild(timerDiv);
+
+        //run the game! game will return the content of the modal window
+        const modalWindowContent = await dummy(selectedMode, gameOverModalWindowContent);
+        const modalWindowContainer = modalWindow(modalWindowContent, refreshThePage);
+        
+        // now append the modal window to the page
+        document.body.appendChild(modalWindowContainer);
+    }
+
+    //generate modal content
+
+    //generate modal and inject it
 }
 
 function removeModalWindow () {
@@ -51,3 +64,9 @@ function refreshThePage () {
 function generateModalWindow(){
     gameOverModalWindowContent()
 }
+
+async function duummy(mode){
+    return dummy;
+}
+
+export default quizGameMode;

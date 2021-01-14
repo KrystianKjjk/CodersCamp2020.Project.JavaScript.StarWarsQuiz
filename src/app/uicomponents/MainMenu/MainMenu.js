@@ -8,7 +8,7 @@ import whiteIconButton from '../WhiteIconButton/WhiteIconButton.js'
 import displayRanking from '../../Ranking.js'
 import {returnImageBase64} from './GetSampleImage.js'
 
-async function mainMenu() {
+async function mainMenu(runGameMode) {
 
     //creating containers for main menu elements
     const mainMenuDiv = document.createElement('div');
@@ -55,9 +55,7 @@ async function mainMenu() {
     const rulesRankingButton = whiteIconButton('Hall of Fame', icon, switchRuleswithRanking);
     
     //Play the Game button
-    const playButton = redButton('Play the Game', function () {
-        window.alert('Placeholder for play the game button');
-    })
+    const playButton = redButton('Play the Game', runGameMode);
 
     //creating a 'spacer' div to separate the buttons
     const buttonsSpacer = document.createElement('div');
