@@ -1,29 +1,17 @@
-import {FIRST_ARGUMENT_WRONG} from './Errors.js';
-import vision from '@google-cloud/vision';
-export async function imageRecognition(base64Image) {
+import { FIRST_ARGUMENT_WRONG, SECOND_ARGUMENT_WRONG } from './Errors.js';
+import { getLabel } from './GoogleClient.js';
+
+async function imageRecognition(base64Image, apiKey) {
     if (typeof base64Image !== 'string')
         throw Error(FIRST_ARGUMENT_WRONG);
-    // Creates a client
-    const client = new vision.ImageAnnotatorClient({
-        credentials: {
-            private_key: 'my_secret_key',
-            client_email: 'email@email.com'
-        }
-    });
+    if (typeof apiKey !== 'string')
+        throw Error(SECOND_ARGUMENT_WRONG);
     
-    // Performs label detection on the image file
-    const [result] = await client.labelDetection({
-        image: {
-            content: base64Image
-            //source: './img.png'
-        }
-    });
-
-    const labels = result.labelAnnotations;
-    console.log('Labels:');
-    console.log(labels);
-    labels.forEach(label => console.log(label.description));
-    
-    
-    return labels[0].description;
+    const result = await getLabel(base64Image, apiKey);
+    if (result.error) {
+        throw Error(`${result.error.code}: ${result.error.message}`);
+    }
+    return result.responses[0].labelAnnotations[0].description;
 }
+
+export { imageRecognition };
