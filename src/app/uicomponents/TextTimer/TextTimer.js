@@ -7,7 +7,6 @@ function generateTextTimerComponent() {
     let interval = setInterval(() => {
         gameTime--;
         changeTimeFormatAndSaveIntoDiv(gameTime, timerDiv);
-        console.log(gameTime);
         if (gameTime === 0) { clearInterval(interval); }
     }, 1000);
 
