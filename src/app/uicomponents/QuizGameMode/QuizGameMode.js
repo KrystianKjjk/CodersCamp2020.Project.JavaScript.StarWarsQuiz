@@ -3,6 +3,7 @@ import modalWindow from '../ModalWindow/ModalWindow.js';
 import gameOverModalWindowContent from '../GameOverModalWindowContent/GameOverModalWindowContent.js';
 import {generateTextTimerComponent} from '../TextTimer/TextTimer.js';
 import {generateLightsaberTimerComponent} from '../LightsaberTimer/LightsaberTimer.js'
+import {createAnswersComponent} from '../../AnswersComponent.js'
 
 async function quizGameMode(gameTime) {
 
@@ -23,7 +24,6 @@ async function quizGameMode(gameTime) {
         document.body.appendChild(modalWindow(modeNotSelectedMessage, removeModalWindow));
     }
 
-
     //if any mode was selected then run the game, otherwise do nothing
     if (selectedMode != 0) {
 
@@ -40,8 +40,22 @@ async function quizGameMode(gameTime) {
         const timerDiv = generateTextTimerComponent();
         saberAndTimerContainer.appendChild(timerDiv);
 
+        //inject the answers component and replace the how to div or rulesdiv
+        const mainSection = document.body.querySelector('.namerulesranking');
+        let answersTargetContainer = document.body.querySelector('.namerulesranking > div:nth-child(2)');
+        const answersComponent = createAnswersComponent();
+        answersTargetContainer = mainSection.replaceChild(answersComponent,answersTargetContainer);
+
+        //remove the bottom buttons
+        mainSection.removeChild(mainSection.querySelector('.buttons'));
+
+        //disable the possibility to change the mode selection by replacing buttons with onclick with empty ones
+        const mainMenuButtons = document.querySelector('.modeSelectorContainer');
+        const newMainMenuButtons = mainMenuButtons.cloneNode(true);
+        mainMenuButtons.parentNode.replaceChild(newMainMenuButtons, mainMenuButtons);
+
         //run the game! game will return the content of the modal window
-        const modalWindowContent = await dummy(selectedMode, gameOverModalWindowContent);
+        const modalWindowContent = await duummy(selectedMode, gameOverModalWindowContent);
         const modalWindowContainer = modalWindow(modalWindowContent, refreshThePage);
         
         // now append the modal window to the page
