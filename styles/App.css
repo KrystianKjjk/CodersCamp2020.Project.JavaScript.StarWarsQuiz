@@ -6,6 +6,7 @@
 @import '../src/app/uicomponents/WhiteIconButton/WhiteIconButton.css';
 @import '../src/app/uicomponents/LogoStarWars/LogoStarWars.css';
 @import '../src/app/uicomponents/TextTimer/TextTimer.css';
+@import '../src/app/uicomponents/LightsaberTimer/LightsaberTimer.css';
 @import './Ranking.css';
 @import './GameRules.css';
 @import '../src/app/uicomponents/ModalWindow/ModalWindow.css';
