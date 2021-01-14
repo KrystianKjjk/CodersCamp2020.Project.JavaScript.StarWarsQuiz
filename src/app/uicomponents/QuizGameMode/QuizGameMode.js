@@ -44,7 +44,10 @@ async function quizGameMode(gameTime) {
         const mainSection = document.body.querySelector('.namerulesranking');
         let answersTargetContainer = document.body.querySelector('.namerulesranking > div:nth-child(2)');
         const answersComponent = createAnswersComponent();
-        answersTargetContainer = mainSection.replaceChild(answersComponent,answersTargetContainer);
+        const answersContainer = document.createElement('div');
+        answersContainer.className = "answersContainer";
+        answersContainer.appendChild(answersComponent);
+        answersTargetContainer = mainSection.replaceChild(answersContainer,answersTargetContainer);
 
         //remove the bottom buttons
         mainSection.removeChild(mainSection.querySelector('.buttons'));
