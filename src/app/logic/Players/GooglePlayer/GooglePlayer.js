@@ -1,11 +1,13 @@
 import answerCorrectness from '../../AnswerCorrectness/AnswerCorrectness';
+import {imageRecognition} from '../../../googlevision/ImageRecognition/ImageRecognition';
 
-function createPlayer() {
+function createPlayer(apiKey) {
     const player = {
         _giveAnswerCallbacks: [],
         _points: 0,
         _askedQuestions: 0,
         _answers: [],
+        _apiKey: apiKey,
 
         getPoints() {
             return this._points;
@@ -27,8 +29,15 @@ function createPlayer() {
             this._giveAnswerCallbacks.push(...callbacksArray);
         },
 
-        answerQuestion(question) {
-            const answer = ''; //TODO USE GOOGLE VISION
+        async answerQuestion(question) {
+            let answer;
+            
+            try {
+                answer = await imageRecognition(question.image, this._apiKey); 
+            } catch(error) {
+                answer = this._giveRandomAnswer(question.answers);
+            }
+            
             this._answers.push(answer);
             this._askedQuestions++;
             if (answerCorrectness(question.rightAnswer, answer)) {
@@ -38,6 +47,12 @@ function createPlayer() {
 
             return answer;
         },
+
+        _giveRandomAnswer(answers) {
+            const randomIndex = Math.floor(Math.random() * answers.length);
+
+            return answers[randomIndex];
+        }
     };
     
     return player;
