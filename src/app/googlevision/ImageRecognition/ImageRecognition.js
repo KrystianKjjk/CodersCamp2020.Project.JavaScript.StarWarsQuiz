@@ -11,7 +11,7 @@ async function imageRecognition(base64Image, apiKey) {
     if (result.error) {
         throw Error(`${result.error.code}: ${result.error.message}`);
     }
-    return result.responses[0].labelAnnotations[0].description;
+    return result.responses[0].webDetection.webEntities[0].description;
 }
 
 export { imageRecognition };

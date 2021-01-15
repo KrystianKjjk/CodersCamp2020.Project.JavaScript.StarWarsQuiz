@@ -25,8 +25,9 @@ describe('Test Google Vision API image recognition function', () => {
     it('should generate label for base64 image', async () => {
         jest.spyOn(GoogleClient, "getLabel").mockResolvedValueOnce({
             responses: [{
-                labelAnnotations: [{description: 'Luke Skywalker'}]
-            }]
+                webDetection: {
+                    webEntities: [{description: 'Luke Skywalker'}]
+            }}]
         });
         const label = await imageRecognition('base64Image', 'API_KEY');
         expect(label).toBe('Luke Skywalker');

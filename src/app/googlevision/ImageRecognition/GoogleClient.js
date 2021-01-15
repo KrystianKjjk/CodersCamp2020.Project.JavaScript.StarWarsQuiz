@@ -12,7 +12,7 @@ async function getLabel(base64Image, apiKey) {
                 "features": [
                     {
                         "maxResults": MAX_RESULTS,
-                        "type": "LABEL_DETECTION"
+                        "type": "WEB_DETECTION"
                     }
                 ]
             }
