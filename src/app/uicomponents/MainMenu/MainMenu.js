@@ -7,6 +7,7 @@ import redButton from '../RedButton/RedButton.js'
 import whiteIconButton from '../WhiteIconButton/WhiteIconButton.js'
 import displayRanking from '../../Ranking.js'
 import {returnImageBase64} from './GetSampleImage.js'
+import generateRankingContainer from './GenerateRanking.js'
 
 async function mainMenu(runGameMode) {
 
@@ -70,31 +71,17 @@ async function mainMenu(runGameMode) {
 }
 
 //callback function for hall of fame button to switch rules with ranking
-//PLEASE REMEMBER THERES PLACEHOLDER FOR RANKING
 function switchRuleswithRanking() {
     let RulesDisplayed = document.body.querySelector('#howToPlay');
-    let RankingDisplayed = document.body.querySelector('#theBestPlayers');
+    let RankingDisplayed = document.body.querySelector('.namerulesranking > div:nth-child(2)');
     let menuDiv = document.body.querySelector('.gameModeContainer').parentNode;
     const buttonText = event.target;
 
     if (RulesDisplayed) {
-        //USERS TO BE ADDED HERE FROM THE FUNCTION RETURNING THE USERS LIST
-        const data = [{
-                name: 'Ania',
-                points: '15/20'
-            },
-            {
-                name: 'Mateusz',
-                points: '14/30'
-            },
-            {
-                name: 'Julia',
-                points: '10/30'
-            }
-        ];
-        const rankingDiv = displayRanking(data);
+        let rankingDiv = generateRankingContainer();
         RulesDisplayed = menuDiv.replaceChild(rankingDiv, RulesDisplayed);
         buttonText.innerHTML = 'Game Rules';
+
     } else {
         const isModeButtonActive = document.body.querySelector('.active');
         let rules;

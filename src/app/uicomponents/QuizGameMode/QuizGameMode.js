@@ -4,6 +4,7 @@ import gameOverModalWindowContent from '../GameOverModalWindowContent/GameOverMo
 import {generateTextTimerComponent} from '../TextTimer/TextTimer.js';
 import {generateLightsaberTimerComponent} from '../LightsaberTimer/LightsaberTimer.js'
 import {createAnswersComponent} from '../../AnswersComponent.js'
+import noModeSelectedModal from './NoModeSelectedModal.js'
 
 async function quizGameMode(gameTime) {
 
@@ -16,12 +17,7 @@ async function quizGameMode(gameTime) {
     try {
         selectedMode = document.querySelector(".active").innerHTML;
     } catch (error) {
-        const modeNotSelectedMessage = document.createElement('div');
-        modeNotSelectedMessage.innerText = "Please select the mode first to start the game";
-        modeNotSelectedMessage.style.padding = "30px";
-        modeNotSelectedMessage.style.color = "white";
-        modeNotSelectedMessage.style.backgroundColor = "black";
-        document.body.appendChild(modalWindow(modeNotSelectedMessage, removeModalWindow));
+        noModeSelectedModal();        
     }
 
     //if any mode was selected then run the game, otherwise do nothing
@@ -64,10 +60,6 @@ async function quizGameMode(gameTime) {
         // now append the modal window to the page
         document.body.appendChild(modalWindowContainer);
     }
-}
-
-function removeModalWindow () {
-    document.body.removeChild(document.querySelector('.modal-window-bg'));
 }
 
 function refreshThePage () {

@@ -32,7 +32,7 @@
 .image {
     display: block;
     margin-right: 30px;
-    margin-bottom: auto;
+    margin: auto;
     height: 50vh;
 }
 
@@ -70,8 +70,21 @@
     border-radius: 16px;
 }
 
+#emptyRanking{
+    background-color: white;
+    box-shadow: 0 2px 2px rgba(0,0,0,.25), 2px 2px 20px rgba(255,0,0,.9), inset 2px 3px 2px rgba(0,0,0,.5);
+    border-radius: 16px;
+    margin: 10px 0;
+}
 
-@media screen and (max-width: 700px) {
+#emptyRanking > h2{
+    padding: 40px;
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+/* mobiles in portrait orientation */
+@media screen and (max-width: 700px) and (orientation: portrait) {
     .mainMenu > .header{
         height: fit-content;
     }
@@ -114,12 +127,13 @@
 
     .gameModeContainer{
         margin-top: 10px;
-        padding: 15px;
-        font-size: 1.3em;
+        padding: 10px;
+        font-size: 1rem;
+        font-weight: 600;
     }
 
-    #howToPlay{
-        height: 100%;
+    .namerulesranking > #howToPlay{
+        height: 90%;
         box-shadow: 0 2px 2px rgba(0,0,0,.25), 2px 2px 20px rgba(255,0,0,.9), inset 2px 3px 2px rgba(0,0,0,.5);
     }
 
@@ -131,7 +145,7 @@
     #howToPlay > .gameRulesP{
         font-size: 1em;
         padding: 10px 15px;
-        height: 100%;
+        height: fit-content;
     }
 
     .buttons > .button{
@@ -153,7 +167,33 @@
         font-size: 20px;
     }
 
-
-
-
   }
+
+/* mobiles in landscape orientation */
+@media screen and (max-width: 1000px) and (orientation: landscape) {
+    .modeSelectorContainer{
+        width: 100%;
+        margin: 10px;
+        height: fit-content;
+        box-shadow: 0 2px 2px rgba(0,0,0,.25), 2px 2px 20px rgba(255,0,0,.9), inset 2px 3px 2px rgba(0,0,0,.5);
+    }
+
+    .mainMenuButton{
+        font-size: 1.3em;
+    }
+
+    .gameModeContainer{
+        padding: 10px;
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+
+    .image{
+        height: 60vh;
+    }
+
+    .buttons > .button{
+        font-size: 1em;
+    }
+
+}

@@ -17,4 +17,22 @@
     font-size: 1.3rem;
     text-align: center;
     padding: 0 100px;
+    margin: auto;
+}
+
+
+@media screen and (max-width: 1000px) {
+    #howToPlay{
+        min-height: 185px;
+    }
+
+    .headerDiv{
+        font-size: 1.3rem;
+    }
+
+    .gameRulesP{
+        font-size: 1rem;
+        padding: 0 20px;
+    }
+
 }
