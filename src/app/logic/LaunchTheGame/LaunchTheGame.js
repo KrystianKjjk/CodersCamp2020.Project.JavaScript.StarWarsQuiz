@@ -5,9 +5,9 @@ import peopleImageToRecognize from '../../uicomponents/PeopleImageToRecognize/Pe
 import generateQuestions from '../../logic/questionsGenerator/QuestionsGenerator';
 
 async function launchGame(gameMode, endGameCallback) {
-    const humanPlayer = createHumanPlayer();
+    const humanPlayer = createHumanPlayer("Gracz");
     const computerPlayer = createComputerPlayer();
-    const gameTime = 10 * 1000; //tutaj będzie 120000 
+    const gameTime = 120 * 1000; //tutaj będzie 120000 
 
     setTimeout(function() {
         endGameCallback(humanPlayer, computerPlayer);
