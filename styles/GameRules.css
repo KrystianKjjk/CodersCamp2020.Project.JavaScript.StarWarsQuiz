@@ -21,9 +21,9 @@
 }
 
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1000px) and (orientation: landscape) {
     #howToPlay{
-        min-height: 185px;
+        min-height: 45vh;
     }
 
     .headerDiv{
@@ -31,7 +31,7 @@
     }
 
     .gameRulesP{
-        font-size: 1rem;
+        font-size: 0.9rem;
         padding: 0 20px;
     }
 }

@@ -78,9 +78,10 @@ function switchRuleswithRanking() {
 
     if (RulesDisplayed) {
         let rankingDiv = generateRankingContainer();
-        RulesDisplayed = menuDiv.replaceChild(rankingDiv, RulesDisplayed);
-        buttonText.innerHTML = 'Game Rules';
-
+        if(rankingDiv){
+            RulesDisplayed = menuDiv.replaceChild(rankingDiv, RulesDisplayed);
+            buttonText.innerHTML = 'Game Rules';
+        }
     } else {
         const isModeButtonActive = document.body.querySelector('.active');
         let rules;
