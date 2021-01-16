@@ -83,10 +83,72 @@
     font-weight: 500;
 }
 
+/* ipads */
+@media screen and (max-width: 1300px) and (orientation: landscape) {
+    .buttons > .button{
+        font-size: 1.2em;
+    }
+
+    #howToPlay{
+        min-height: 300px;
+    }
+    
+    .gameModeContainer{
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width: 1400px) and (orientation: portrait) {
+    .mainsection{
+        flex-direction: column;
+    }
+
+    #menu-logo{
+        margin: 0 !important;
+        width: 30vw;
+        height: initial;
+        }
+
+    .image{
+        height: 35vh;
+    }
+
+    .namerulesranking{
+        margin: auto;
+        padding-top: 10px;
+        max-width: 70vw;
+    }
+
+    .buttons > .button{
+        font-size: 1.2em;
+    }
+
+    #howToPlay{
+        min-height: 300px;
+    }
+    
+    .gameModeContainer{
+        font-size: 1.5em;
+    }
+
+    #emptyRanking, #howToPlay, #theBestPlayers{
+        height: auto;   
+        min-height: 30vh;     
+    }
+
+    .buttons > .button{
+        font-size: 1.7em;
+    }
+}
+
 /* mobiles in portrait orientation */
 @media screen and (max-width: 700px) and (orientation: portrait) {
     .mainMenu > .header{
         height: fit-content;
+    }
+
+    #emptyRanking > h2{
+        font-size: 1em;
     }
     
     #menu-logo{
@@ -166,7 +228,6 @@
     #theBestPlayers > .rankingTitle > *{
         font-size: 20px;
     }
-
   }
 
 /* mobiles in landscape orientation */
@@ -180,6 +241,10 @@
 
     .mainMenuButton{
         font-size: 1.3em;
+    }
+
+    #emptyRanking > h2{
+        font-size: 1em;
     }
 
     .gameModeContainer{
@@ -196,4 +261,33 @@
         font-size: 1em;
     }
 
+}
+
+
+
+
+/* ultrasmall screen adjustment */
+@media screen and (max-width: 350px){
+    .mainMenuButton{
+        font-size: 1.1em;
+    }
+
+    .buttons > .button{
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (max-width: 650px) and (orientation: landscape){
+    .mainMenuButton{
+        font-size: 1.1em;
+    }
+
+    .buttons > .button{
+        font-size: 0.8em;
+    }
+
+    .gameModeContainer{
+        font-size: 1.1em
+    }
+    
 }

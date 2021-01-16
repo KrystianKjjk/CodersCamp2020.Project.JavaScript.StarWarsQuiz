@@ -24,6 +24,8 @@ const generateModeNameAndRules = (modeName) => {
             ruleText = RULESTEXTS.DEFAULTRULES;
      }
 
+     
+
     const nameModeDiv = createGameModeName(modeName);
     const rulesDiv = displayText(ruleText);
 

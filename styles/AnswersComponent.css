@@ -57,7 +57,7 @@
 }
 
 /* mobiles in landscape orientation */
-@media screen and (max-width: 1000px) and (orientation: landscape) {
+@media screen and (max-width: 1200px) and (orientation: landscape) {
   .answers-component {
     grid-template-columns: repeat(2, minmax(1rem, 1fr));
     gap: 10px;

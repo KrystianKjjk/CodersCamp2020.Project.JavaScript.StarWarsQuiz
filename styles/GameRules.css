@@ -34,5 +34,34 @@
         font-size: 1rem;
         padding: 0 20px;
     }
+}
 
+
+@media screen and (max-width: 350px){
+    #howToPlay{
+        min-height: initial;
+    }
+
+    #howToPlay > .gameRulesP{
+        font-size: 0.8rem;
+    }
+
+    .headerDiv{
+        margin: 0.5em;
+    }
+}
+
+@media screen and (max-width: 600px) and (orientation: landscape){
+    #howToPlay{
+        min-height: initial;
+        padding-bottom: 15px;
+    }
+    
+    #howToPlay > .gameRulesP{
+        font-size: 0.8rem;
+    }
+
+    .headerDiv{
+        margin: 0.5em;
+    }
 }
