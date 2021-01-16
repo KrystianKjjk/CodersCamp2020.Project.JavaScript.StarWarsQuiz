@@ -36,6 +36,12 @@
     }
 }
 
+@media screen and (max-width: 1000px) and (orientation:portrait) {
+    .headerDiv{
+        margin: 0.5em;
+    }
+}
+
 
 @media screen and (max-width: 350px){
     #howToPlay{
