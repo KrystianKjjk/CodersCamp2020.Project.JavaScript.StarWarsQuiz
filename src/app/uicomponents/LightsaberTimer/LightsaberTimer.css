@@ -1,10 +1,10 @@
    .lightsaber {
        display: flex;
        align-items: center;
-       width: 100%;
    }
    
    .handle {
+
        display: flex;
        width: 299px;
        width: 16%;
@@ -23,6 +23,7 @@
        width: 84%;
        height: 2.5vw;
        max-height: 30px;
+
        left: 282px;
        top: 10px;
        background: #BCBCBC;
@@ -39,3 +40,4 @@
        box-shadow: 10px -5px 15px #FF0000, 10px 5px 15px #FF0000, inset 0px 5px 4px rgba(255, 0, 0, 0.25);
        border-radius: 8px;
    }
+
