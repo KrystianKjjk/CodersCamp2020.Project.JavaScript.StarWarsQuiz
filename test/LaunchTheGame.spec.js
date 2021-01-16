@@ -16,7 +16,7 @@ jest.mock('../src/app/logic/questionsGenerator/QuestionsGenerator', () => jest.f
 
 describe(('Launch the game tests'), () => {
 
-    test('should invoke callback fnction after 120s', async() => {
+    test('should invoke callback function after 120s', async() => {
         const mockedCallback = jest.fn();
         jest.useFakeTimers();
 

@@ -7,30 +7,28 @@ import generateQuestions from '../../logic/questionsGenerator/QuestionsGenerator
 async function launchGame(gameMode, endGameCallback) {
     const humanPlayer = createHumanPlayer("Gracz");
     const computerPlayer = createComputerPlayer();
-    const gameTime = 120 * 1000; //tutaj będzie 120000 
+    const gameTime = 120000;
 
     setTimeout(function() {
         endGameCallback(humanPlayer, computerPlayer);
     }, gameTime);
 
-    let questionObject = await generateQuestions(gameMode);
-    const image = peopleImageToRecognize(questionObject.image);
-    const imageDiv = document.body.querySelector('.image');
-    imageDiv.appendChild(image);
+    await generateQuestionsAndReplaceImage(gameMode);
 
-    humanPlayer.askQuestion(questionObject, []);
-    computerPlayer.answerQuestion(questionObject);
-    displayAnswersComponent(questionObject.answers, questionObject.rightAnswer, handleUserAnswer);
-
-
-    async function handleUserAnswer(givenAnswer, isCorrect) {
+    async function handleUserAnswer(givenAnswer) {
         humanPlayer.answerQuestion(givenAnswer, []);
+        await generateQuestionsAndReplaceImage(gameMode);
+    }
 
+    async function generateQuestionsAndReplaceImage(gameMode) {
         const questionObject = await generateQuestions(gameMode);
         const image = peopleImageToRecognize(questionObject.image);
         const imageDiv = document.body.querySelector('.image');
-        imageDiv.removeChild(imageDiv.lastChild);
+        if (imageDiv.hasChildNodes() === true) {
+            imageDiv.removeChild(imageDiv.lastChild);
+        }
         imageDiv.appendChild(image);
+
         humanPlayer.askQuestion(questionObject, []);
         computerPlayer.answerQuestion(questionObject);
         displayAnswersComponent(questionObject.answers, questionObject.rightAnswer, handleUserAnswer);
@@ -38,10 +36,4 @@ async function launchGame(gameMode, endGameCallback) {
     }
 }
 
-
-
 export default launchGame;
-
-
-// const callback = (userPlayer, computerPlayer) => {endGameModalWindow(userPlayer, computerPlayer, saveToLocalStorageFunction)}
-// launchGame("Vehicles", callback);
