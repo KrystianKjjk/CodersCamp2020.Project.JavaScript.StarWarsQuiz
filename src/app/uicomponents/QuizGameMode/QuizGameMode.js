@@ -1,15 +1,10 @@
-import {GameModes} from '../../Consts.js'
-import modalWindow from '../ModalWindow/ModalWindow.js';
-import gameOverModalWindowContent from '../GameOverModalWindowContent/GameOverModalWindowContent.js';
 import {generateTextTimerComponent} from '../TextTimer/TextTimer.js';
 import {generateLightsaberTimerComponent} from '../LightsaberTimer/LightsaberTimer.js'
 import {createAnswersComponent} from '../../AnswersComponent.js'
 import noModeSelectedModal from './NoModeSelectedModal.js'
 
+//game time provided in case we'd like to use it
 async function quizGameMode(gameTime) {
-
-    //create a questions div
-    const questionsDiv = document.createElement('div');
 
     //define the selected mode - by checking the button's innerHTML
     //if no button is selected - display modal
@@ -54,20 +49,13 @@ async function quizGameMode(gameTime) {
         mainMenuButtons.parentNode.replaceChild(newMainMenuButtons, mainMenuButtons);
 
         //run the game! game will return the content of the modal window
-        const modalWindowContent = await duummy(selectedMode, gameOverModalWindowContent);
-        const modalWindowContainer = modalWindow(modalWindowContent, refreshThePage);
-        
-        // now append the modal window to the page
-        document.body.appendChild(modalWindowContainer);
+        try{
+            await duummy(selectedMode); 
+        }
+        catch (error){
+            console.log("Use correct game function in Quiz Game Mode component!");
+        }
     }
-}
-
-function refreshThePage () {
-    location.reload();
-}
-
-function generateModalWindow(){
-    gameOverModalWindowContent()
 }
 
 //dummy function to be replaced with Justyna's one

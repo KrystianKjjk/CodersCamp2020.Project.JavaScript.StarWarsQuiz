@@ -5,7 +5,6 @@ import generateModeNameAndRules from './GenerateModeNameAndRules.js'
 import {StartMode} from '../../Consts.js'
 import redButton from '../RedButton/RedButton.js'
 import whiteIconButton from '../WhiteIconButton/WhiteIconButton.js'
-import displayRanking from '../../Ranking.js'
 import {returnImageBase64} from './GetSampleImage.js'
 import generateRankingContainer from './GenerateRanking.js'
 
