@@ -51,7 +51,7 @@ async function quizGameMode(gameTime) {
 
         //run the game! game will return the content of the modal window
         try{
-            let modalWindowContent = await launchGame(selectedMode);
+            await launchGame(selectedMode);
         }
         catch (error){
             console.log(error);

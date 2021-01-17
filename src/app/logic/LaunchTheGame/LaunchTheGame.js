@@ -5,6 +5,7 @@ import peopleImageToRecognize from '../../uicomponents/PeopleImageToRecognize/Pe
 import generateQuestions from '../../logic/questionsGenerator/QuestionsGenerator';
 import modalWindow from '../../uicomponents/ModalWindow/ModalWindow';
 import gameOverModalWindowContent from '../../uicomponents/GameOverModalWindowContent/GameOverModalWindowContent';
+import {addUserRankInLocalStorage} from '../UserRankInLocalStorage/UserRankInLocalStorage';
 
 async function launchGame(gameMode) {
     const humanPlayer = createHumanPlayer("Gracz");
@@ -17,7 +18,7 @@ async function launchGame(gameMode) {
 //in this functions the modal is created and displayed after the game time ends
     setTimeout(function() {
         const answersAndImages = createArrayOfObjectsWithAnswersAndImage(humanPlayer, computerPlayer, correctAnswers, images);
-        const modalContent = gameOverModalWindowContent(answersAndImages, removeModalWindow);
+        const modalContent = gameOverModalWindowContent(answersAndImages, saveInLocalStorageAndReload, gameMode);
         document.body.appendChild(modalWindow(modalContent, removeModalWindow));
     }, gameTime);
 
@@ -72,8 +73,19 @@ function createArrayOfObjectsWithAnswersAndImage (humanPlayer, computerPlayer, c
 }
 
 
-function removeModalWindow() {
+function saveInLocalStorageAndReload(name, humanAnswers, humanCorrect, mode) {
+    const obj = {
+        gameMode: mode,
+        userName: name, 
+        numberOfCorrectAnswers: humanCorrect, 
+        numberOfTotalAnswers: humanAnswers
+    };    
+    addUserRankInLocalStorage(obj);
     document.body.removeChild(document.querySelector('.modal-window-bg'));
+}
+
+function removeModalWindow() {
+    location.reload();
 }
 
 export default launchGame;

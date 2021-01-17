@@ -15,7 +15,7 @@ const MODES = Object.values(GameModes);
    --------------------------------------------- */
 
 function addUserRankInLocalStorage(obj) {
-  
+  console.log(obj);
   //checks if passed arguments are correct
   if( typeof obj.gameMode !== 'string'
       || typeof obj.userName !== 'string'
