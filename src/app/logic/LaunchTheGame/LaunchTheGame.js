@@ -12,8 +12,7 @@ async function launchGame(gameMode) {
     const computerPlayer = createComputerPlayer();
     const correctAnswers = [];
     const images = [];
-    const gameTime = 4000;
-
+    const gameTime = 120000;
 
 //in this functions the modal is created and displayed after the game time ends
     setTimeout(function() {
