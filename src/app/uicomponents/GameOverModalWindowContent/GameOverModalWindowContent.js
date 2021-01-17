@@ -1,5 +1,5 @@
 import {FIRST_ARG_ERROR, SECOND_ARG_ERROR} from './Errors.js';
-function gameOverModalWindowContent(answers, callback){
+function gameOverModalWindowContent(answers, callback, gameMode){
     // First argument should be array of answers
     if (!Array.isArray(answers) || 
         !answers.every((answer) => {
@@ -70,10 +70,11 @@ function gameOverModalWindowContent(answers, callback){
     inputDescription.innerHTML = "Please fill your name in order to receive eternal glory in whole Galaxy!"
 
     // Submit button
+    
     const submitButton = document.createElement('button');
     submitButton.addEventListener('click', (e) => {
         if (textInput.value.length > 0) {
-            callback(textInput.value, humanCorrect.length);
+            callback(textInput.value, answers.length, humanCorrect.length, gameMode);
             if(component.parentElement && component.parentElement.parentElement) {
                 component.parentElement.parentElement.click();
             }

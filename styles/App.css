@@ -9,6 +9,11 @@
 @import '../src/app/uicomponents/LightsaberTimer/LightsaberTimer.css';
 @import './Ranking.css';
 @import './GameRules.css';
+@import '../src/app/uicomponents/ModalWindow/ModalWindow.css';
+@import '../src/app/uicomponents/QuizGameMode/QuizGameMode.css';
+@import './AnswersComponent.css';
+@import '../src/app/uicomponents/GameOverModalWindowContent/GameOverModalWindowContent.css';
+
 body {
     font-family: 'Montserrat', sans-serif;
     background-image: url(../static/assets/ui/QuizBackground.png);

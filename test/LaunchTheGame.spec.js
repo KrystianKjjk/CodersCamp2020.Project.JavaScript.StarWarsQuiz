@@ -16,8 +16,8 @@ jest.mock('../src/app/logic/questionsGenerator/QuestionsGenerator', () => jest.f
 
 describe(('Launch the game tests'), () => {
 
-    test('should invoke callback function after 120s', async() => {
-        const mockedCallback = jest.fn();
+    test('should invoke modal window function after 120s', async() => {
+        const modalWindow = jest.fn();
         jest.useFakeTimers();
 
         const imageDiv = document.createElement('div');
@@ -25,10 +25,9 @@ describe(('Launch the game tests'), () => {
         document.body.appendChild(imageDiv);
         document.body.appendChild(createAnswersComponent());
 
-        await launchGame(GameModes.PEOPLE, mockedCallback);
+        await launchGame(GameModes.PEOPLE);
         jest.advanceTimersByTime(120 * 1000);
 
-        expect(mockedCallback).toBeCalledTimes(1);
-        expect(mockedCallback).toHaveBeenCalledWith(expect.objectContaining({ "_askedQuestions": 1, "_name": "Gracz" }), expect.objectContaining({ "_askedQuestions": 1 }));
+        expect(document.body.querySelector('.modal-window')).toBeTruthy();
     })
 })

@@ -19,7 +19,7 @@ const createGameModeName = (modeName) => {
             gameModeNameDiv.textContent = 'Do you recognize this starship?';
             break;
         case start:
-            gameModeNameDiv.textContent = 'Select game mode';
+            gameModeNameDiv.textContent = 'Star Wars Quiz';
             break;
         default:
             throw 'Mode name argument was not passed to the createGameModeName component or the argument was invalid';

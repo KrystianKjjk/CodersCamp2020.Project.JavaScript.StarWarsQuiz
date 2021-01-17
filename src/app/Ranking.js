@@ -1,6 +1,10 @@
 function displayRanking(listOfUsers) {
   if (listOfUsers.length > 3) {
-    throw Error('List of users cannot have more than three players.');
+    listOfUsers = listOfUsers.sort((a,b) => ((a.numberOfCorrectAnswers/a.numberOfTotalAnswers) < (b.numberOfCorrectAnswers/b.numberOfTotalAnswers)) ? 1: -1);
+
+    while(listOfUsers.length > 3){
+      listOfUsers.pop();
+    }
   }
 
   const ranking = document.createElement('div');
@@ -39,10 +43,20 @@ function displayRanking(listOfUsers) {
     placeP.innerText = places[index];
     ranking.appendChild(placeP);
     const playerP = document.createElement('p');
-    playerP.innerText = user.name;
+    playerP.innerText = user.userName;
     ranking.appendChild(playerP);
     const pointsP = document.createElement('p');
-    pointsP.innerText = user.points;
+    
+    //check if number of correct answers is not 0
+    let percentageScore;
+    if (user.numberOfCorrectAnswers){
+      percentageScore = Math.round((user.numberOfCorrectAnswers/user.numberOfTotalAnswers)*100);
+    }
+    else{
+      percentageScore = 0;
+    }
+
+    pointsP.innerText = `${user.numberOfCorrectAnswers}/${user.numberOfTotalAnswers} (${percentageScore}%)`;
     ranking.appendChild(pointsP);
   });
 

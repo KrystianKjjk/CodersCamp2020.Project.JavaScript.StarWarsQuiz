@@ -1,0 +1,35 @@
+.saberAndTimerContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: auto;
+    padding-bottom: 30px;
+}
+
+.answersContainer{
+    padding: 20px 0;
+}
+
+@media screen and (max-width: 1000px){
+    .saberAndTimerContainer{
+        padding-bottom: 5px;
+        margin-top: 10px;
+    }
+    
+    .text-timer{
+        font-size: 1.3rem;
+        padding-bottom: 10px;
+    }
+
+    .answersContainer{
+        padding: 10px 0;
+        height:3
+    }
+}
+
+@media screen and (max-height: 300px){
+    .saberAndTimerContainer{
+        margin-top: 0;
+    }
+}
+

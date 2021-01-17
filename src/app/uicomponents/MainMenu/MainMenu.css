@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 .mainMenu {
@@ -9,7 +11,7 @@
     padding: 0 5%;
 }
 
-.header {
+.mainMenu > .header {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -27,18 +29,22 @@
     flex-direction: row;
     align-items: center;
     width: 100%;
+    height: 65vh;
 }
 
 .image {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-right: 30px;
-    margin-bottom: auto;
+    margin-left: 20px;
     height: 50vh;
+    padding-right:5px;
 }
 
 .image>img {
     max-height: 100%;
-    width: auto;
+    max-width: 100%;
 }
 
 .namerulesranking {
@@ -51,7 +57,7 @@
 }
 
 .namerulesranking>div:nth-child(2) {
-    height: 100%;
+    height: 80%;
 }
 
 .buttons {
@@ -68,4 +74,237 @@
     background-color: white;
     margin: 10px 0;
     border-radius: 16px;
+}
+
+#emptyRanking{
+    background-color: white;
+    box-shadow: 0 2px 2px rgba(0,0,0,.25), 2px 2px 20px rgba(255,0,0,.9), inset 2px 3px 2px rgba(0,0,0,.5);
+    border-radius: 16px;
+    margin: 10px 0;
+}
+
+#emptyRanking > h2{
+    padding: 40px;
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+/* ipads */
+@media screen and (max-width: 1300px) and (orientation: landscape) {
+    .buttons > .button{
+        font-size: 1.2em;
+    }
+
+    #howToPlay{
+        min-height: 300px;
+    }
+    
+    .gameModeContainer{
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width: 1400px) and (orientation: portrait) {
+    .mainsection{
+        flex-direction: column;
+    }
+
+    #menu-logo{
+        margin: 0 !important;
+        width: 30vw;
+        height: initial;
+        }
+
+    .image{
+        height: 35vh;
+    }
+
+    .namerulesranking{
+        margin: auto;
+        padding-top: 10px;
+        max-width: 85vw;
+    }
+
+    .buttons > .button{
+        font-size: 1.2em;
+    }
+
+    #howToPlay{
+        min-height: 300px;
+    }
+    
+    .gameModeContainer{
+        font-size: 1.5em;
+    }
+
+    #emptyRanking, #howToPlay, #theBestPlayers{
+        height: auto;   
+        min-height: 20vh;     
+    }
+
+    .buttons > .button{
+        font-size: 1.7em;
+    }
+
+    #theBestPlayers > *{
+        font-size: 1rem;
+    }
+}
+
+/* mobiles in portrait orientation */
+@media screen and (max-width: 700px) and (orientation: portrait) {
+    .mainMenu > .header{
+        height: fit-content;
+    }
+
+    #emptyRanking > h2{
+        font-size: 1em;
+    }
+    
+    #menu-logo{
+        display: none;
+    }
+
+    .modeSelectorContainer{
+        width: 100%;
+        margin: 10px;
+        height: fit-content;
+        box-shadow: 0 2px 2px rgba(0,0,0,.25), 2px 2px 20px rgba(255,0,0,.9), inset 2px 3px 2px rgba(0,0,0,.5);
+    }
+
+    .mainMenuButton{
+        font-size: 1.3em;
+    }
+
+    .mainsection{
+        flex-direction: column;
+        height:100%;
+    }
+
+    .mainsection > .image{
+        margin: 0;
+        height: 40vh;
+    }
+
+    .image{
+        width:100%;
+    }
+
+    img.border{
+        box-shadow: 0 2px 2px rgba(0,0,0,.25), 2px 2px 20px rgba(255,0,0,.9), inset 2px 3px 2px rgba(0,0,0,.5);
+    }
+
+    .namerulesranking{
+        margin: 0;
+        max-width: 100vw;
+        justify-content: space-around;
+        height: 50%;
+    }
+
+    .gameModeContainer{
+        margin-top: 10px;
+        padding: 10px;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .namerulesranking > #howToPlay{
+        height: 90%;
+        box-shadow: 0 2px 2px rgba(0,0,0,.25), 2px 2px 20px rgba(255,0,0,.9), inset 2px 3px 2px rgba(0,0,0,.5);
+    }
+
+    #howToPlay > .headerDiv{
+        margin: 15px 0 0 0;
+        font-size: 1.3em;
+    }
+
+    #howToPlay > .gameRulesP{
+        font-size: 0.9em;
+        padding: 10px 15px;
+        height: fit-content;
+    }
+
+    .buttons > .button{
+        font-size: 1em;
+    }
+
+    .namerulesranking > #theBestPlayers{
+        padding: 5px;
+    }
+
+    #theBestPlayers > *{
+        font-size: 0.8em;
+    }
+
+    #theBestPlayers > .rankingTitle {
+        margin: 5px;
+    }
+    #theBestPlayers > .rankingTitle > *{
+        font-size: 1rem;
+    }
+  }
+
+/* mobiles in landscape orientation */
+@media screen and (max-width: 1000px) and (orientation: landscape) {
+    .modeSelectorContainer{
+        width: 100%;
+        margin: 10px;
+        height: fit-content;
+        box-shadow: 0 2px 2px rgba(0,0,0,.25), 2px 2px 20px rgba(255,0,0,.9), inset 2px 3px 2px rgba(0,0,0,.5);
+    }
+
+    .mainMenuButton{
+        font-size: 1.3em;
+    }
+
+    #emptyRanking > h2{
+        font-size: 1em;
+    }
+
+    .gameModeContainer{
+        padding: 10px;
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+
+    .image{
+        height: 60vh;
+        margin: 0;
+    }
+
+    .buttons > .button{
+        font-size: 1em;
+    }
+
+    #theBestPlayers > p{
+        font-size: 0.7rem;
+    }
+
+}
+
+
+/* ultrasmall screen adjustment */
+@media screen and (max-width: 350px){
+    .mainMenuButton{
+        font-size: 1.1em;
+    }
+
+    .buttons > .button{
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (max-width: 850px) and (orientation: landscape){
+    .mainMenuButton{
+        font-size: 1.1em;
+    }
+
+    .buttons > .button{
+        font-size: 0.8em;
+    }
+
+    .gameModeContainer{
+        font-size: 1.1em
+    }
+    
 }

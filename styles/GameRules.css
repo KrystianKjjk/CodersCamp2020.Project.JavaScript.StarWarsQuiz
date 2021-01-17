@@ -1,10 +1,12 @@
 #howToPlay {
-    font-size: 20px;
     font-weight: 500;
     text-align: center;
+    box-shadow: 0 4px 4px rgba(0,0,0,.25), 4px 4px 40px rgba(255,0,0,.9), inset 4px 5px 4px rgba(0,0,0,.5)
 }
 
 .headerDiv {
+    margin: 1em;
+    font-size: 2rem;
     display: flex;
     flex-direction: row;
     align-items: baseline;
@@ -12,7 +14,59 @@
 }
 
 .gameRulesP {
-    font-size: 15px;
-    text-align: left;
+    font-size: 1.3rem;
+    text-align: center;
     padding: 0 100px;
+    margin: auto;
+}
+
+
+@media screen and (max-width: 1000px) and (orientation: landscape) {
+    #howToPlay{
+        min-height: 45vh;
+    }
+
+    .headerDiv{
+        font-size: 1.3rem;
+    }
+
+    .gameRulesP{
+        font-size: 0.9rem;
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 1000px) and (orientation:portrait) {
+    .headerDiv{
+        margin: 0.5em;
+    }
+}
+
+
+@media screen and (max-width: 350px){
+    #howToPlay{
+        min-height: initial;
+    }
+
+    #howToPlay > .gameRulesP{
+        font-size: 0.8rem;
+    }
+
+    .headerDiv{
+        margin: 0.5em;
+    }
+}
+
+@media screen and (max-width: 600px) and (orientation: landscape){
+    #howToPlay{
+        padding-bottom: 15px;
+    }
+    
+    #howToPlay > .gameRulesP{
+        font-size: 0.8rem;
+    }
+
+    .headerDiv{
+        margin: 0.5em;
+    }
 }

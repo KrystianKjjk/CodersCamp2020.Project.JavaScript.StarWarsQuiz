@@ -1,30 +1,43 @@
    .lightsaber {
-       width: 100%;
+       display: flex;
+       align-items: center;
    }
    
    .handle {
-       position: absolute;
+
+       display: flex;
        width: 299px;
        width: 16%;
-       height: 49px;
+       height: 30px;
        left: 8px;
+       align-items: center;       
+   }
+
+   .handle > img {
+        width: 110%;
+        object-fit: contain;
    }
    
    .saber {
-       position: absolute;
+    display: inline-block;
        width: 84%;
-       height: 26px;
+       height: 2.5vw;
+       max-height: 30px;
+
        left: 282px;
        top: 10px;
        background: #BCBCBC;
        box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
        border-radius: 8px;
+       margin: auto;
    }
    
    .progress-bar {
        position: relative;
-       height: 26px;
+       height: 2.5vw;
+       max-height: 30px;
        background: #FFFFFF;
        box-shadow: 10px -5px 15px #FF0000, 10px 5px 15px #FF0000, inset 0px 5px 4px rgba(255, 0, 0, 0.25);
        border-radius: 8px;
    }
+
