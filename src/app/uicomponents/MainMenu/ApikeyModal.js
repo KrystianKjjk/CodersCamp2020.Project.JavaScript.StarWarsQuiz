@@ -20,11 +20,9 @@ function apikeyModal(gamefunction, mode) {
     modalWindowContent.appendChild(submitButton);
 
     submitButton.addEventListener('click', (e) => {
-        if (textInput.value.length > 0) {
             const apikey = textInput.value;            
             gamefunction(apikey, mode);
-            removeModalWindow();  
-        }
+            removeModalWindow();         
     })
     document.body.appendChild(modalWindow(modalWindowContent,removeModalWindow));    
 }
