@@ -51,10 +51,11 @@ async function quizGameMode(gameTime) {
 
         //run the game! game will return the content of the modal window
         try{
-            await launchGame(selectedMode, noModeSelectedModal); 
+            let modalWindowContent = await launchGame(selectedMode);
         }
         catch (error){
-            console.log("Use correct game function in Quiz Game Mode component!");
+            console.log(error);
+            // console.log("Use correct game function in Quiz Game Mode component!");
         }
     }
 }
@@ -63,5 +64,7 @@ async function quizGameMode(gameTime) {
 async function duummy(mode){
     return dummy;
 }
+
+
 
 export default quizGameMode;
