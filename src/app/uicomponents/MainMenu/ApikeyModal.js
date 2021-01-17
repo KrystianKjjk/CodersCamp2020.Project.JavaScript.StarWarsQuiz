@@ -2,7 +2,7 @@ import modalWindow from '../ModalWindow/ModalWindow.js';
 
 function apikeyModal(gamefunction, mode) {
     let modalWindowContent = document.createElement('div');
-    modalWindowContent.classname = "apikey-modal-window";
+    modalWindowContent.className = "apikey-modal-window";
 
     const textInput = document.createElement('input');
     textInput.type = "text";
@@ -10,7 +10,7 @@ function apikeyModal(gamefunction, mode) {
     textInput.placeholder = "Google Vision API Key";
 
     const inputDescription = document.createElement('p');
-    inputDescription.innerHTML = "Please put the Google Vision API key in the input field above";
+    inputDescription.innerHTML = "Please put the Google Vision API key in the input field above or just click start to play with your own computer :)";
     const submitButton = document.createElement('button');
     submitButton.innerHTML = "START"
     submitButton.className = "submit-btn";

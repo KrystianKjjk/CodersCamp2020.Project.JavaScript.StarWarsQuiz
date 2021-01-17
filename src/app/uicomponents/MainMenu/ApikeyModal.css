@@ -1,5 +1,52 @@
+.modal-window{
+    background-color: black;
+}
 .apikey-modal-window{
     display:flex;
-    width: 90%;
+    flex-direction: column;
+    width: 70vw;
     margin: 0 auto;
+    padding: 10%;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+.apikey-modal-window > * {
+    color:white;
+}
+
+.apikey-modal-window > input {
+    width: 100%;
+    height: 40px;
+    font-size: 2rem;
+    margin: 0;
+    color: black;
+}
+
+.apikey-modal-window > p{
+    width: 100%;
+    padding: 20px 0;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.apikey-modal-window > button{
+    width: 100%;
+    margin: 0;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .apikey-modal-window{
+        width: 90vw;
+    }
+
+    .apikey-modal-window > p {
+        font-size: 1em;
+    }
+
+    .apikey-modal-window > input {
+        font-size: 1em;
+    }
+
 }
