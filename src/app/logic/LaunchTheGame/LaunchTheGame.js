@@ -13,6 +13,8 @@ async function launchGame(gameMode) {
     const images = [];
     const gameTime = 4000;
 
+
+//in this functions the modal is created and displayed after the game time ends
     setTimeout(function() {
         const answersAndImages = createArrayOfObjectsWithAnswersAndImage(humanPlayer, computerPlayer, correctAnswers, images);
         console.log(answersAndImages);
