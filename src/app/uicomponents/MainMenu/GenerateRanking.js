@@ -1,5 +1,6 @@
 import {getUserRankInLocalStorage} from '../../logic/UserRankInLocalStorage/UserRankInLocalStorage.js'
 import noModeSelectedModal from '../QuizGameMode/NoModeSelectedModal.js'
+import displayRanking from '../../Ranking';
 
 function generateRankingContainer() {
     let ranking;
@@ -12,10 +13,9 @@ function generateRankingContainer() {
     }
 
     if (selectedMode != 0) {
-        const selectedMode = document.querySelector(".active").innerHTML;
         const rankingData = getUserRankInLocalStorage(selectedMode);
 
-        if(rankingData > 0){
+        if(rankingData.length >= 1 ){
             const rankingDiv = displayRanking(rankingData);
             ranking = rankingDiv;
         }  

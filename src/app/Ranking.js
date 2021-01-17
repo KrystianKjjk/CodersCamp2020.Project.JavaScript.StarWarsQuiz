@@ -34,15 +34,19 @@ function displayRanking(listOfUsers) {
 
   const places = ['1st', '2nd', '3rd'];
 
+  while(listOfUsers.length > 3){
+    listOfUsers.pop();
+  }
+
   listOfUsers.forEach((user, index) => {
     const placeP = document.createElement('p');
     placeP.innerText = places[index];
     ranking.appendChild(placeP);
     const playerP = document.createElement('p');
-    playerP.innerText = user.name;
+    playerP.innerText = user.userName;
     ranking.appendChild(playerP);
     const pointsP = document.createElement('p');
-    pointsP.innerText = user.points;
+    pointsP.innerText = `${user.numberOfCorrectAnswers}/${user.numberOfTotalAnswers}`;
     ranking.appendChild(pointsP);
   });
 
