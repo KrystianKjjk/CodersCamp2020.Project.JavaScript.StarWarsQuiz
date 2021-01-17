@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 .mainMenu {
@@ -27,19 +29,22 @@
     flex-direction: row;
     align-items: center;
     width: 100%;
-    height: 70vh;
+    height: 65vh;
 }
 
 .image {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-right: 30px;
     margin-left: 20px;
     height: 50vh;
+    padding-right:5px;
 }
 
 .image>img {
     max-height: 100%;
-    width: auto;
+    max-width: 100%;
 }
 
 .namerulesranking {
@@ -140,6 +145,10 @@
     .buttons > .button{
         font-size: 1.7em;
     }
+
+    #theBestPlayers > *{
+        font-size: 1rem;
+    }
 }
 
 /* mobiles in portrait orientation */
@@ -175,6 +184,10 @@
     .mainsection > .image{
         margin: 0;
         height: 40vh;
+    }
+
+    .image{
+        width:100%;
     }
 
     img.border{
@@ -227,7 +240,7 @@
         margin: 5px;
     }
     #theBestPlayers > .rankingTitle > *{
-        font-size: 20px;
+        font-size: 1rem;
     }
   }
 
@@ -256,15 +269,18 @@
 
     .image{
         height: 60vh;
+        margin: 0;
     }
 
     .buttons > .button{
         font-size: 1em;
     }
 
+    #theBestPlayers > p{
+        font-size: 0.7rem;
+    }
+
 }
-
-
 
 
 /* ultrasmall screen adjustment */
@@ -278,7 +294,7 @@
     }
 }
 
-@media screen and (max-width: 650px) and (orientation: landscape){
+@media screen and (max-width: 850px) and (orientation: landscape){
     .mainMenuButton{
         font-size: 1.1em;
     }

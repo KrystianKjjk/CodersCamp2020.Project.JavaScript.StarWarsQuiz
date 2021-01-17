@@ -27,7 +27,7 @@
 @media screen and (max-width: 1000px) {
     #theBestPlayers {
         padding: 5px;
-        min-height: 185px;
+        min-height: 155px;
     }
 
     #theBestPlayers>* {
@@ -35,8 +35,8 @@
     }
 
     .rankingTitle {
-        font-size: 1.3rem;
+        font-size: 1rem;
+        margin: 0;
     }
-
 
 }
