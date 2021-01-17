@@ -6,10 +6,19 @@ import generateQuestions from '../../logic/questionsGenerator/QuestionsGenerator
 import modalWindow from '../../uicomponents/ModalWindow/ModalWindow';
 import gameOverModalWindowContent from '../../uicomponents/GameOverModalWindowContent/GameOverModalWindowContent';
 import {addUserRankInLocalStorage} from '../UserRankInLocalStorage/UserRankInLocalStorage';
+import createPlayer from '../../logic/Players/GooglePlayer/GooglePlayer.js'
 
-async function launchGame(gameMode) {
+async function launchGame(gameMode, apikey) {
     const humanPlayer = createHumanPlayer("Gracz");
-    const computerPlayer = createComputerPlayer();
+    let computerPlayer;
+
+    if(apikey){
+        computerPlayer = createPlayer(apikey);
+    }
+    else{
+        computerPlayer = createComputerPlayer();
+    }
+
     const correctAnswers = [];
     const images = [];
     const gameTime = 120000;

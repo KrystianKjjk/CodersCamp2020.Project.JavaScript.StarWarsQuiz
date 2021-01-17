@@ -51,7 +51,8 @@ async function quizGameMode(gameTime) {
 
         //run the game! game will return the content of the modal window
         try{
-            await launchGame(selectedMode);
+
+            await launchGame(selectedMode, apikey);
         }
         catch (error){
             console.log(error);
@@ -59,12 +60,5 @@ async function quizGameMode(gameTime) {
         }
     }
 }
-
-//dummy function to be replaced with Justyna's one
-async function duummy(mode){
-    return dummy;
-}
-
-
 
 export default quizGameMode;

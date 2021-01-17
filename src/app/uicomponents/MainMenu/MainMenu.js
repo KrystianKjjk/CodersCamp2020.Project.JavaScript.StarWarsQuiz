@@ -7,6 +7,7 @@ import redButton from '../RedButton/RedButton.js'
 import whiteIconButton from '../WhiteIconButton/WhiteIconButton.js'
 import {returnImageBase64} from './GetSampleImage.js'
 import generateRankingContainer from './GenerateRanking.js'
+import apikeyModal from './ApikeyModal'
 
 async function mainMenu(runGameMode) {
 
@@ -55,7 +56,7 @@ async function mainMenu(runGameMode) {
     const rulesRankingButton = whiteIconButton('Hall of Fame', icon, switchRuleswithRanking);
     
     //Play the Game button
-    const playButton = redButton('Play the Game', runGameMode);
+    const playButton = redButton('Play the Game', apikeyModal, runGameMode);
 
     //creating a 'spacer' div to separate the buttons
     const buttonsSpacer = document.createElement('div');
