@@ -38,13 +38,13 @@ Poprawność odpowiedzi sprawdzana jest na podstawie algorytmu opisanego [TUTAJ]
 W momencie wystartowania quizu na dole strony pojawia się informacja o czasie, jaki pozostał graczowi na odpowiedzi. Czas wyświetlany jest w formie tekstowej oraz w formie graficznej - miecz świetlny, który zmniejsza się wraz z upływem czasu. 
 
 ### Inni gracze
-W trakcie rozpoczęcia gry gracz konkuruje również z komputerem. Może zdecydować o trybie gry z komputerem, tj. komputer może wybierać odpowiedzi losowo lub z wykorzystaniem rozpoznawania obrazu (Google Vision API).
+W trakcie rozpoczęcia gry gracz konkuruje również z komputerem. Może zdecydować o trybie gry z komputerem, tj. komputer może wybierać odpowiedzi losowo lub z wykorzystaniem rozpoznawania obrazu (Google Vision API, pod warunkiem że gracz poda API Key) .
 
 ### Google Vision API
 W celu uzyskania odpowiedzi do Google Vision API wysyłany jest obrazek w postaci stringa base64. Algorytm zwraca jedną odpowiedź najbardziej odnoszącą się do przekazanego zdjęcia (tryb `WEB_DETECTION`). Przekazana odpowiedź jest porównywana do poprawnej odpowiedzi na podstawie stworzonego algorytmu sprawdzania poprawności odpowiedzi.
 
 ### Elementy gry
-Gracz przed rozpoczęciem gry w ustawieniach może wybrać jak odpowiedzi ma wybierać komputer (losowo czy przez rozpoznawanie obrazu - Google Vision API). Dodatkowo na stronie głównej jest możliwość sprawdzenia rankingu dla danego trybu gry, który jest przechowywany w *LocalStorage* przeglądarki.
+Gracz przed rozpoczęciem gry w ustawieniach może wybrać jak odpowiedzi ma wybierać komputer (losowo czy przez rozpoznawanie obrazu - Google Vision API - pod warunkiem że gracz poda API Key). Dodatkowo na stronie głównej jest możliwość sprawdzenia rankingu dla danego trybu gry, który jest przechowywany w *LocalStorage* przeglądarki.
 
 ### Komponenty 
 W projekcie stworzono komponenty, które mogą być w łatwy sposób tworzone i dodawane do DOMu. Komponenty napisane w ten sposób są później łatwiejsze w użyciu, gdy interakcje użytkownika oraz upływający czas zmieniają to, co użytkownik widzi w przeglądarce.
