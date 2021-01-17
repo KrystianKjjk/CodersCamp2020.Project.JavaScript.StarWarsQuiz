@@ -4,8 +4,7 @@ import {createAnswersComponent} from '../../AnswersComponent.js'
 import noModeSelectedModal from './NoModeSelectedModal.js'
 import launchGame from '../../logic/LaunchTheGame/LaunchTheGame.js'
 
-//game time provided in case we'd like to use it
-async function quizGameMode(gameTime) {
+async function quizGameMode(apikey) {
 
     //define the selected mode - by checking the button's innerHTML
     //if no button is selected - display modal
@@ -51,7 +50,6 @@ async function quizGameMode(gameTime) {
 
         //run the game! game will return the content of the modal window
         try{
-
             await launchGame(selectedMode, apikey);
         }
         catch (error){
