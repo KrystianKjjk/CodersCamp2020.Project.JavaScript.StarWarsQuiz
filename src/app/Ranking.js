@@ -46,7 +46,16 @@ function displayRanking(listOfUsers) {
     playerP.innerText = user.userName;
     ranking.appendChild(playerP);
     const pointsP = document.createElement('p');
-    let percentageScore = Math.round((user.numberOfCorrectAnswers/user.numberOfTotalAnswers)*100);
+    
+    //check if number of correct answers is not 0
+    let percentageScore;
+    if (user.numberOfCorrectAnswers){
+      percentageScore = Math.round((user.numberOfCorrectAnswers/user.numberOfTotalAnswers)*100);
+    }
+    else{
+      percentageScore = 0;
+    }
+
     pointsP.innerText = `${user.numberOfCorrectAnswers}/${user.numberOfTotalAnswers} (${percentageScore}%)`;
     ranking.appendChild(pointsP);
   });
