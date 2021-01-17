@@ -13,6 +13,7 @@
 @import '../src/app/uicomponents/QuizGameMode/QuizGameMode.css';
 @import './AnswersComponent.css';
 @import '../src/app/uicomponents/GameOverModalWindowContent/GameOverModalWindowContent.css';
+@import '../src/app/uicomponents/MainMenu/ApikeyModal.css';
 
 body {
     font-family: 'Montserrat', sans-serif;

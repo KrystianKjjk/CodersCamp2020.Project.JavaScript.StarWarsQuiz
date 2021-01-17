@@ -6,10 +6,19 @@ import generateQuestions from '../../logic/questionsGenerator/QuestionsGenerator
 import modalWindow from '../../uicomponents/ModalWindow/ModalWindow';
 import gameOverModalWindowContent from '../../uicomponents/GameOverModalWindowContent/GameOverModalWindowContent';
 import {addUserRankInLocalStorage} from '../UserRankInLocalStorage/UserRankInLocalStorage';
+import createPlayer from '../../logic/Players/GooglePlayer/GooglePlayer.js'
 
-async function launchGame(gameMode) {
+async function launchGame(gameMode, apikey) {
     const humanPlayer = createHumanPlayer("Gracz");
-    const computerPlayer = createComputerPlayer();
+    let computerPlayer;
+
+    if(apikey){
+        computerPlayer = createPlayer(apikey);
+    }
+    else{
+        computerPlayer = createComputerPlayer();
+    }
+
     const correctAnswers = [];
     const images = [];
     const gameTime = 120000;
@@ -40,7 +49,6 @@ async function launchGame(gameMode) {
         //pushing the image and correct answer to separate arrays
         images.push(questionObject.image);
         correctAnswers.push(questionObject.rightAnswer)
-
         humanPlayer.askQuestion(questionObject, []);
         computerPlayer.answerQuestion(questionObject);
         displayAnswersComponent(questionObject.answers, questionObject.rightAnswer, handleUserAnswer);
@@ -50,9 +58,11 @@ async function launchGame(gameMode) {
 //function to create array of objects used to generate modal window
 function createArrayOfObjectsWithAnswersAndImage (humanPlayer, computerPlayer, correctAnswers, images){
     let objArray = [];
+    let computerAnswers = computerPlayer.getAnswers();
+    let humanAnswers = humanPlayer.answersHistory;
     
     //iterate over all inputs and get the correct array structure
-    for (let i = 0; i < humanPlayer._answers.length; i++){
+    for (let i = 0; i < humanAnswers.length; i++){
         let obj = {
             human: "",
             computer: "",
@@ -60,14 +70,12 @@ function createArrayOfObjectsWithAnswersAndImage (humanPlayer, computerPlayer, c
             image: ""
         };
 
-        obj.human = humanPlayer._answers[i];
-        obj.computer = computerPlayer._answers[i];
+        obj.human = humanAnswers[i];
+        obj.computer = computerAnswers[i];
         obj.correct = correctAnswers[i];
         obj.image = images[i];
-
         objArray.push(obj);
     }
-
     return objArray;
 }
 
@@ -79,7 +87,9 @@ function saveInLocalStorageAndReload(name, humanAnswers, humanCorrect, mode) {
         numberOfCorrectAnswers: humanCorrect, 
         numberOfTotalAnswers: humanAnswers
     };    
-    addUserRankInLocalStorage(obj);
+    if(obj.numberOfTotalAnswers > 0){
+        addUserRankInLocalStorage(obj);
+    }    
     document.body.removeChild(document.querySelector('.modal-window-bg'));
 }
 

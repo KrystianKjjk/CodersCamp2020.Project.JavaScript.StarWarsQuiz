@@ -1,4 +1,4 @@
-function redButton(label, onClick) {
+function redButton(label, onClick, runGameFunction) {
     if (typeof label !== 'string') {
       throw Error('Label should be a string.');
     }
@@ -11,7 +11,13 @@ function redButton(label, onClick) {
     button.className = 'button red-button';
     button.innerText = label;
     button.addEventListener('click', (e) => {
-      onClick();
+      let selectedMode;
+      try{
+        selectedMode = document.querySelector(".active").innerHTML;
+      }
+      catch(error){}
+
+      onClick(runGameFunction, selectedMode);
     }); 
     
     return button;
