@@ -11,7 +11,12 @@ function redButton(label, onClick, runGameFunction) {
     button.className = 'button red-button';
     button.innerText = label;
     button.addEventListener('click', (e) => {
-      const selectedMode = document.querySelector(".active").innerHTML;
+      let selectedMode;
+      try{
+        selectedMode = document.querySelector(".active").innerHTML;
+      }
+      catch(error){}
+
       onClick(runGameFunction, selectedMode);
     }); 
     
