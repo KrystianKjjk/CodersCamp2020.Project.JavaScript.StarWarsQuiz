@@ -21,10 +21,11 @@ async function launchGame(gameMode, apikey) {
 
     const correctAnswers = [];
     const images = [];
-    const gameTime = 120000;
+    const gameTime = 4000;
 
 //in this functions the modal is created and displayed after the game time ends
     setTimeout(function() {
+        console.log(computerPlayer);
         const answersAndImages = createArrayOfObjectsWithAnswersAndImage(humanPlayer, computerPlayer, correctAnswers, images);
         const modalContent = gameOverModalWindowContent(answersAndImages, saveInLocalStorageAndReload, gameMode);
         document.body.appendChild(modalWindow(modalContent, removeModalWindow));
@@ -49,7 +50,6 @@ async function launchGame(gameMode, apikey) {
         //pushing the image and correct answer to separate arrays
         images.push(questionObject.image);
         correctAnswers.push(questionObject.rightAnswer)
-
         humanPlayer.askQuestion(questionObject, []);
         computerPlayer.answerQuestion(questionObject);
         displayAnswersComponent(questionObject.answers, questionObject.rightAnswer, handleUserAnswer);
@@ -59,9 +59,11 @@ async function launchGame(gameMode, apikey) {
 //function to create array of objects used to generate modal window
 function createArrayOfObjectsWithAnswersAndImage (humanPlayer, computerPlayer, correctAnswers, images){
     let objArray = [];
+    let computerAnswers = computerPlayer.getAnswers();
+    let humanAnswers = humanPlayer.answersHistory;
     
     //iterate over all inputs and get the correct array structure
-    for (let i = 0; i < humanPlayer._answers.length; i++){
+    for (let i = 0; i < humanAnswers.length; i++){
         let obj = {
             human: "",
             computer: "",
@@ -69,14 +71,12 @@ function createArrayOfObjectsWithAnswersAndImage (humanPlayer, computerPlayer, c
             image: ""
         };
 
-        obj.human = humanPlayer._answers[i];
-        obj.computer = computerPlayer._answers[i];
+        obj.human = humanAnswers[i];
+        obj.computer = computerAnswers[i];
         obj.correct = correctAnswers[i];
         obj.image = images[i];
-
         objArray.push(obj);
     }
-
     return objArray;
 }
 
