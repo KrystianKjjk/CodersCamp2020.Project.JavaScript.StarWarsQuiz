@@ -2,6 +2,7 @@ import {generateTextTimerComponent} from '../TextTimer/TextTimer.js';
 import {generateLightsaberTimerComponent} from '../LightsaberTimer/LightsaberTimer.js'
 import {createAnswersComponent} from '../../AnswersComponent.js'
 import noModeSelectedModal from './NoModeSelectedModal.js'
+import launchGame from '../../logic/LaunchTheGame/LaunchTheGame.js'
 
 //game time provided in case we'd like to use it
 async function quizGameMode(gameTime) {
@@ -50,7 +51,7 @@ async function quizGameMode(gameTime) {
 
         //run the game! game will return the content of the modal window
         try{
-            await duummy(selectedMode); 
+            await launchGame(selectedMode, noModeSelectedModal); 
         }
         catch (error){
             console.log("Use correct game function in Quiz Game Mode component!");
