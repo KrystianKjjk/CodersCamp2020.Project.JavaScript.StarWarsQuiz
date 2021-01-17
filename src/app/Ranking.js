@@ -1,6 +1,10 @@
 function displayRanking(listOfUsers) {
   if (listOfUsers.length > 3) {
-    throw Error('List of users cannot have more than three players.');
+    listOfUsers = listOfUsers.sort((a,b) => (a.numberOfCorrectAnswers < b.numberOfCorrectAnswers) ? 1: -1);
+
+    while(listOfUsers.length > 3){
+      listOfUsers.pop();
+    }
   }
 
   const ranking = document.createElement('div');
@@ -34,9 +38,9 @@ function displayRanking(listOfUsers) {
 
   const places = ['1st', '2nd', '3rd'];
 
-  while(listOfUsers.length > 3){
-    listOfUsers.pop();
-  }
+  
+
+  
 
   listOfUsers.forEach((user, index) => {
     const placeP = document.createElement('p');
