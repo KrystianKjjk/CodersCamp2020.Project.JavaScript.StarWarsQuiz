@@ -1,6 +1,6 @@
 function displayRanking(listOfUsers) {
   if (listOfUsers.length > 3) {
-    listOfUsers = listOfUsers.sort((a,b) => (a.numberOfCorrectAnswers < b.numberOfCorrectAnswers) ? 1: -1);
+    listOfUsers = listOfUsers.sort((a,b) => ((a.numberOfCorrectAnswers/a.numberOfTotalAnswers) < (b.numberOfCorrectAnswers/b.numberOfTotalAnswers)) ? 1: -1);
 
     while(listOfUsers.length > 3){
       listOfUsers.pop();
@@ -38,10 +38,6 @@ function displayRanking(listOfUsers) {
 
   const places = ['1st', '2nd', '3rd'];
 
-  
-
-  
-
   listOfUsers.forEach((user, index) => {
     const placeP = document.createElement('p');
     placeP.innerText = places[index];
@@ -50,7 +46,8 @@ function displayRanking(listOfUsers) {
     playerP.innerText = user.userName;
     ranking.appendChild(playerP);
     const pointsP = document.createElement('p');
-    pointsP.innerText = `${user.numberOfCorrectAnswers}/${user.numberOfTotalAnswers}`;
+    let percentageScore = Math.round((user.numberOfCorrectAnswers/user.numberOfTotalAnswers)*100);
+    pointsP.innerText = `${user.numberOfCorrectAnswers}/${user.numberOfTotalAnswers} (${percentageScore}%)`;
     ranking.appendChild(pointsP);
   });
 
