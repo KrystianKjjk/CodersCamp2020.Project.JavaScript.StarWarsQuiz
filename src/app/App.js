@@ -4,3 +4,4 @@ import quizGameMode from './uicomponents/QuizGameMode/QuizGameMode.js'
 export async function App({ options }) {
     document.body.appendChild(await mainMenu(quizGameMode));   
 };
+
