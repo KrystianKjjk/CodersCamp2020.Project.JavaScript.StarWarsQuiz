@@ -17,7 +17,6 @@ async function launchGame(gameMode) {
 //in this functions the modal is created and displayed after the game time ends
     setTimeout(function() {
         const answersAndImages = createArrayOfObjectsWithAnswersAndImage(humanPlayer, computerPlayer, correctAnswers, images);
-        console.log(answersAndImages);
         const modalContent = gameOverModalWindowContent(answersAndImages, removeModalWindow);
         document.body.appendChild(modalWindow(modalContent, removeModalWindow));
     }, gameTime);
