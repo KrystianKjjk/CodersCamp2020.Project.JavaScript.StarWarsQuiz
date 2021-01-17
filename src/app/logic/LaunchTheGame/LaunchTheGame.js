@@ -87,7 +87,9 @@ function saveInLocalStorageAndReload(name, humanAnswers, humanCorrect, mode) {
         numberOfCorrectAnswers: humanCorrect, 
         numberOfTotalAnswers: humanAnswers
     };    
-    addUserRankInLocalStorage(obj);
+    if(obj.numberOfTotalAnswers > 0){
+        addUserRankInLocalStorage(obj);
+    }    
     document.body.removeChild(document.querySelector('.modal-window-bg'));
 }
 

@@ -1,11 +1,9 @@
 function displayRanking(listOfUsers) {
-  if (listOfUsers.length > 3) {
     listOfUsers = listOfUsers.sort((a,b) => ((a.numberOfCorrectAnswers/a.numberOfTotalAnswers) < (b.numberOfCorrectAnswers/b.numberOfTotalAnswers)) ? 1: -1);
 
     while(listOfUsers.length > 3){
       listOfUsers.pop();
     }
-  }
 
   const ranking = document.createElement('div');
   ranking.id = 'theBestPlayers';
