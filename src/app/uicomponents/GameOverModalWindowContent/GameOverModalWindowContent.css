@@ -1,5 +1,4 @@
 .game-over-win {
-    width: 1000px;
     box-sizing: border-box;
     background: #ddd;
     text-align: center;
@@ -26,8 +25,7 @@
 .scrollable-list {
     grid-area: scrollable-list;
     align-items: center;
-    margin: 3rem 0;
-    padding: 0 2em;
+    padding: 3rem 2em;
 }
 .game-over-win ul {
     margin-top: 1em;
@@ -36,8 +34,7 @@
     list-style-type: none;
 }
 .game-over-win ul > li {
-    margin: 1.3em 0;
-    padding: 0 1em;
+    padding: 1.3em 1em;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 }
@@ -69,6 +66,7 @@
 /* Text input */
 .game-over-win > div > input{
     grid-area: input;
+    width: 20em;
     border-radius: 0.5rem;
     border: #444 solid 2px;
     padding: 0.5em 1em;
@@ -94,4 +92,51 @@
 }
 .submit-btn:hover {
     cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+    .game-over-win > div {
+        text-align: center;
+        justify-content: center;
+        justify-items: center;
+        grid-template-areas: 
+                                'scrollable-list'
+                                'yoda'
+                                'input'
+                                'input-description';
+        grid-template-columns: 1fr;
+    }
+    .game-over-win > div > p {
+        text-align-last: center;
+    }
+    .game-over-win > div > input {
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .scrollable-list {
+        display: none;
+    }
+    .game-over-win > div > input {
+        width: 15em;
+    }
+}
+
+@media (max-width: 400px) {
+    .game-over-win > h2 {
+        font-size: 30px;
+    }
+    .game-over-win {
+        font-size: 17px;
+    }
+    .scrollable-list {
+        display: none;
+    }
+    .game-over-win > div > input {
+        width: 10em;
+    }
+    .submit-btn {
+        font-size: 20px;
+    }
 }
