@@ -10,7 +10,7 @@ describe('Ranking test', () => {
 
     expect(displayRanking(data)).toBeInstanceOf(HTMLElement);
   });
-  it('throws error when length of list is higher than 3', () => {
+  it('limits the ranking list when number of results is higher than 3', () => {
     const data = [
       { name: 'Ania', points: '15/20' },
       { name: 'Mateusz', points: '14/30' },
@@ -18,8 +18,6 @@ describe('Ranking test', () => {
       { name: 'Leia Organa', points: '1/23' },
     ];
 
-    expect(() => displayRanking(data)).toThrowError(
-      'List of users cannot have more than three players.',
-    );
+    expect(displayRanking(data)).toBeInstanceOf(HTMLElement);
   });
 });

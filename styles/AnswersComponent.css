@@ -53,6 +53,18 @@
 
   .answers-component__button {
     height: auto;
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 850px) and (orientation:landscape){
+  .answers-component {
+    grid-template-columns: repeat(1, minmax(1rem, 1fr));
+  }
+
+  .answers-component__button {
+    height: auto;
+    font-size: 1em;
   }
 }
 
@@ -68,7 +80,6 @@
   .answers-component__button {
     height: auto;
   }
-
 }
 
 /*# sourceMappingURL=AnswersComponent.css.map */

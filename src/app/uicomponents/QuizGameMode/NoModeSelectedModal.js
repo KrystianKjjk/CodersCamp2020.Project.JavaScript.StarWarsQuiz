@@ -7,6 +7,7 @@ function noModeSelectedModal() {
     modeNotSelectedMessage.style.color = "white";
     modeNotSelectedMessage.style.backgroundColor = "black";
     modeNotSelectedMessage.style.textAlign = "center";
+    modeNotSelectedMessage.style.fontSize = "1.5rem";
     document.body.appendChild(modalWindow(modeNotSelectedMessage, removeModalWindow));
 }
 
