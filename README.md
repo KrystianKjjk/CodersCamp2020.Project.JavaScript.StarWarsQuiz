@@ -3,27 +3,27 @@
 ## I. O Projekcie
 Zrealizowany projekt to aplikacja webowa działająca w przeglądarce, bez potrzeby instalacji. Jest to quiz sprawdzający znajomość uniwersum Gwiezdnych Wojen. Projekt jest tworzony w ramach udziału w CodersCamp 2020, wykorzystujący takie technologie jak HTML, CSS oraz JavaScript. Działanie projektu zostało pokryte testami jednostkowymi.
 
-- DEMO Projektu
-- [Repozytorium zadania](https://github.com/CodersCamp2020/CodersCamp2020.Project.JavaScript.StarWarsQuiz)
+* DEMO Projektu
+* [Repozytorium zadania](https://github.com/CodersCamp2020/CodersCamp2020.Project.JavaScript.StarWarsQuiz)
 
 Zespół, którego mentorem był Krystian wspólnie pracował pisaniem kodu, natomiast w ramach dodatkowych odpowiedzialności zajmowaliśmy się także sprawdzaniem poprawności i stylu kodu, a także wewnętrznym zarządzaniem projektem. Spis dodatkowych ról:
-- Justyna (Code Review)
-- Julia (Code Review)
-- Robert (Development Manager)
-- Filip (Product Owner)
-- Ireneusz (Code Review)
-- Konrad (Code Review)
+* Justyna (Code Review)
+* Julia (Code Review)
+* Robert (Development Manager)
+* Filip (Product Owner)
+* Ireneusz (Code Review)
+* Konrad (Code Review)
 
 ## II. Repozytorium 
 W skład repozytorium projektu wchodzą:
-- `index.html`, `index.js` - pliki wyjściowe projektu
-- folder `src` - zawiera pliki z funkcjonalnościami na stronie, podzielony na podfoldery:
--- `src/app/apiconnection` - zawiera pliki z łączeniem się z zewnętrznym API
--- `src/app/logic` - zawiera pliki z kodem logiki quizu
--- `src/app/uicomponents` - zawiera pliki komponentów (zwracają `HTMLElement`) oraz style CSS.
-- folder `test` - zawiera pliki z testami jednostkowymi dla funkcjonalności na stronie
-- folder `styles` - zawiera pliki z głównymi stylami strony głównej
-- folder `static` - zawiera pliki graficzne wykorzystywane na stronie oraz przez StarWars API
+* `index.html`, `index.js` - pliki wyjściowe projektu
+* folder `src` - zawiera pliki z funkcjonalnościami na stronie, podzielony na podfoldery:
+  * `src/app/apiconnection` - zawiera pliki z łączeniem się z zewnętrznym API
+  * `src/app/logic` - zawiera pliki z kodem logiki quizu
+  * `src/app/uicomponents` - zawiera pliki komponentów (zwracają `HTMLElement`) oraz style CSS.
+* folder `test` - zawiera pliki z testami jednostkowymi dla funkcjonalności na stronie
+* folder `styles` - zawiera pliki z głównymi stylami strony głównej
+* folder `static` - zawiera pliki graficzne wykorzystywane na stronie oraz przez StarWars API
 
 
 ## III. Zawartość projektu
@@ -53,11 +53,11 @@ W projekcie stworzono komponenty, które mogą być w łatwy sposób tworzone i 
 Każda funkcjonalność użyta w projekcie została przetestowana testami jednostkowymi. 
 
 ## IV. Wykorzystane technologie
-- JavaScript
-- HTML
-- CSS (a także SASS)
-- Star Wars API
-- Google Vision API
+* JavaScript
+* HTML
+* CSS (a także SASS)
+* Star Wars API
+* Google Vision API
 
 ## V. Użyte zagadnienia
 W projekcie można znaleźć przykłady zastosowania wszystkich tych zagadnień: zmienne, operatory porównania, pętle, obiekty, atrybuty, warunki, funkcje, operatory logiczne, tablice, iteracja i/lub rekurencja, console, return, === vs ==, integracja z zewnętrznym REST API, interakcja z domem, odwoływanie się do elementów DOM z JavaScript, zmiana stylów z poziomu JSa, zmiana zawartości HTML z poziomu JSa, animacje, zewnętrzne biblioteki, async await i/lub Promise, funkcje callback, metody HTTP, pisanie testów jednostkowych.
@@ -65,11 +65,11 @@ W projekcie można znaleźć przykłady zastosowania wszystkich tych zagadnień:
 ## VI. Uruchomienie projektu i testów
 ### Uruchomienie projektu
 Aby uruchomić aplikację na lokalnej maszynie, wykonaj następujące kroki:
-- Zainstaluj zależności za pomocą komendy: `npm install`
-- Wystartuj serwer developerski `npm run start:dev`
-- Aplikacja będzie dostępna pod adresem `localhost:8765/index.html`
+* Zainstaluj zależności za pomocą komendy: `npm install`
+* Wystartuj serwer developerski `npm run start:dev`
+* Aplikacja będzie dostępna pod adresem `localhost:8765/index.html`
 
 ### Uruchomienie testów
 Aby uruchomić testy aplikacji, wykonaj następujące kroki:
-- Zainstaluj zależności za pomocą komendy: `npm install` (jeśli nie zrobiłeś już tego wcześniej).
-- Uruchom testy, wykonując komendę: `npm run test`.
+* Zainstaluj zależności za pomocą komendy: `npm install` (jeśli nie zrobiłeś już tego wcześniej).
+* Uruchom testy, wykonując komendę: `npm run test`.
