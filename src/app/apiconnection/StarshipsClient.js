@@ -1,5 +1,5 @@
 async function getStarshipById(id) {
-    const starship = await fetch(`https://swapi.dev/api/starships/${id}`);
+    const starship = await fetch(`https://swapi.dev/api/starships/${id}/`);
     return starship.json();
 }
 

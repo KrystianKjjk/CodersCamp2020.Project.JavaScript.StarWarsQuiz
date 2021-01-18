@@ -1,5 +1,5 @@
 async function getVehicleById(id) {
-    const vehicle = await fetch(`https://swapi.dev/api/vehicles/${id}`);
+    const vehicle = await fetch(`https://swapi.dev/api/vehicles/${id}/`);
     return vehicle.json();
 }
 
