@@ -24,7 +24,7 @@ function createLightsaberElement() {
     handleDiv.className = 'handle';
     lightsaberDiv.appendChild(handleDiv);
     const handleImage = document.createElement('img');
-    handleImage.src = "/static/assets/ui/LightsaberHandle.png";
+    handleImage.src = "static/assets/ui/LightsaberHandle.png";
     handleImage.alt = 'Handle image';
     handleDiv.appendChild(handleImage);
     const saberDiv = document.createElement('div');
