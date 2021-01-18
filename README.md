@@ -3,10 +3,10 @@
 ## I. O Projekcie
 Zrealizowany projekt to aplikacja webowa działająca w przeglądarce, bez potrzeby instalacji. Jest to quiz sprawdzający znajomość uniwersum Gwiezdnych Wojen. Projekt jest tworzony w ramach udziału w CodersCamp 2020, wykorzystujący takie technologie jak HTML, CSS oraz JavaScript. Działanie projektu zostało pokryte testami jednostkowymi.
 
-* DEMO Projektu
+* [DEMO Projektu](https://krystiankjjk.github.io/CodersCamp2020.Project.JavaScript.StarWarsQuiz/index.html)
 * [Repozytorium zadania](https://github.com/CodersCamp2020/CodersCamp2020.Project.JavaScript.StarWarsQuiz)
 
-Zespół, którego mentorem był Krystian wspólnie pracował pisaniem kodu, natomiast w ramach dodatkowych odpowiedzialności zajmowaliśmy się także sprawdzaniem poprawności i stylu kodu, a także wewnętrznym zarządzaniem projektem. Spis dodatkowych ról:
+Zespół, którego mentorem był Krystian wspólnie pracował nad pisaniem kodu, natomiast w ramach dodatkowych odpowiedzialności zajmowaliśmy się także sprawdzaniem poprawności i stylu kodu, a także wewnętrznym zarządzaniem projektem. Spis dodatkowych ról:
 * Justyna (Code Review)
 * Julia (Code Review)
 * Robert (Development Manager)
