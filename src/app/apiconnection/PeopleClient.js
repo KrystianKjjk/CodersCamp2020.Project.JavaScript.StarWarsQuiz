@@ -1,5 +1,5 @@
 async function getPersonById(id) {
-    const person = await fetch(`https://swapi.dev/api/people/${id}`);
+    const person = await fetch(`https://swapi.dev/api/people/${id}/`);
     return person.json();
 }
 
