@@ -57,7 +57,7 @@ function gameOverModalWindowContent(answers, callback, gameMode){
 
     // Yoda image
     const yodaImage = document.createElement('img');
-    yodaImage.src = "../../../../static/assets/ui/MasterYodaLeft.png"
+    yodaImage.src = "static/assets/ui/MasterYodaLeft.png"
     yodaImage.className = 'yoda'
 
     // Text input
