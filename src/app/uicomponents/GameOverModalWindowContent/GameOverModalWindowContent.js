@@ -25,7 +25,7 @@ function gameOverModalWindowContent(answers, callback, gameMode){
     const gameOverParagraph = document.createElement('p');
     const humanCorrect = answers.filter((answer) => answer.human === answer.correct);
     const computerCorrect = answers.filter((answer) => answer.computer === answer.correct);
-    gameOverParagraph.innerHTML = `The force is strong in you young Padawan! During 2 minute you have answered ${humanCorrect.length} / ${answers.length} questions. And Google guessed ${computerCorrect.length} / ${answers.length}.`;
+    gameOverParagraph.innerHTML = `The force is strong in you young Padawan! During 2 minutes you have answered ${humanCorrect.length} / ${answers.length} questions. And Google guessed ${computerCorrect.length} / ${answers.length}.`;
 
     // Main grid
     const mainGrid = document.createElement('div');
