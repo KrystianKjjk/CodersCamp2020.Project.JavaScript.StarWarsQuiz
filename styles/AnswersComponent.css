@@ -23,9 +23,7 @@
 .answers-component__button:hover {
   box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.5);
 }
-.answers-component__button:focus {
-  font-weight: 600;
-}
+
 .answers-component__button--correct {
   background: #41ED25;
   font-weight: 600;
