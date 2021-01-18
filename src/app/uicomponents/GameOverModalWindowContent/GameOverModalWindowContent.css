@@ -94,7 +94,7 @@
     cursor: pointer;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
     .game-over-win > div {
         text-align: center;
         justify-content: center;
